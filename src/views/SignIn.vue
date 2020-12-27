@@ -12,19 +12,6 @@
 			<input type="password" placeholder="Password" v-model="password" />
 		</div>
 		<button @click="userSingIn">Sing in Now!!</button>
-
-		<v-form>
-			<v-row>
-				<v-text-field v-model="email"></v-text-field>
-			</v-row>
-			<v-row>
-				<v-text-field v-model="password"></v-text-field>
-			</v-row>
-			<v-row>
-				<v-btn></v-btn>
-			</v-row>
-		</v-form>
-
 	</div>
 </template>
 

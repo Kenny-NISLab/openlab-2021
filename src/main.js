@@ -4,12 +4,14 @@ import router from './router'
 import store from './store'
 
 import firebase from './firebase.js'
-  
+import vuetify from './plugins/vuetify';
+
 Vue.config.productionTip = false
 
 new Vue({
-	router,
-	store,
-	firebase,
-	render: h => h(App)
+    router,
+    store,
+    firebase,
+    vuetify,
+    render: h => h(App)
 }).$mount('#app')
