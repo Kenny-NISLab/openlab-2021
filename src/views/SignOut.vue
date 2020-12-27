@@ -1,23 +1,22 @@
 <template>
-<div class="signout">
-	<v-container>
-		<h1>SING OUT</h1>
-		<div>
-			<router-link to="/">Home</router-link> |
-			<router-link to="/mypage">マイページ</router-link>
-		</div>
+	<div class="signout">
+		<h1>ログアウト</h1>
+		<MenuBar/>
 
 		<div>
 			<button @click="singout">Sing out Now!!</button>
 		</div>
-	</v-container>
-</div>
+	</div>
 </template>
 
 <script>
 import firebase from "../firebase.js";
+import MenuBar from '../components/MenuBar.vue';
 export default {
-	name: "singout",
+	name: "signout",
+	components: {
+		MenuBar,
+	},
 	methods: {
 		singout() {
 		firebase
@@ -25,7 +24,7 @@ export default {
 			.signOut()
 			.then(() => {
 			alert("ログアウトしました。");
-			this.$router.push("/signin");
+			this.$router.push("/");
 			})
 			.catch(error => {
 			alert(error);

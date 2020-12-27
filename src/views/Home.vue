@@ -1,24 +1,20 @@
 <template>
-<div class="home">
-	<v-container>
+	<div class="home">
 		<h1>Home</h1>
-		<div>
-			<router-link to="/about">About</router-link> |
-			<router-link to="/signin">ログイン</router-link> |
-			<router-link to="/signup">アカウント作成</router-link> |
-			<router-link to="/signout">ログアウト</router-link> |
-			<router-link to="/mypage">マイページ</router-link> |
-			<router-link to="/contactme">お問い合わせ</router-link>
-		</div>
-	</v-container>
-</div>
+		<WelcomeUser/>
+		<MenuBar/>
+	</div>
 </template>
 
 <script>
+import WelcomeUser from '../components/WelcomeUser.vue';
+import MenuBar from '../components/MenuBar.vue';
 
 export default {
 	name: "home",
 	components: {
+		WelcomeUser,
+		MenuBar,
 	}
 }
 </script>

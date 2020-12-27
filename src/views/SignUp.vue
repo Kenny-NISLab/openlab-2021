@@ -1,10 +1,7 @@
 <template>
-<div class="signup">
-	<v-container>
+    <div class="signup">
         <h1>アカウント作成</h1>
-        <div>
-            <router-link to="/">Home</router-link>
-        </div>
+		<MenuBar/>
 
         <div>
             <h3>メールアドレス</h3>
@@ -15,14 +12,17 @@
             <input type="password" placeholder="Password" v-model="password" />
         </div>
         <button @click="createUserAccount">アカウントを作成する</button>
-    </v-container>
-</div>
+    </div>
 </template>
 
 <script>
 import firebase from "../firebase.js";
+import MenuBar from '../components/MenuBar.vue';
 export default {
-    name: "singup",
+    name: "signup",
+    components: {
+        MenuBar,
+    },
     data() {
         return {
         email: "",
@@ -32,17 +32,31 @@ export default {
 
     methods: {
         createUserAccount() {
-        firebase
-            .auth()
-            .createUserWithEmailAndPassword(this.email, this.password)
+            firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
             .then(() => {
-            alert("アカウントを作成しました。");
-            this.$router.push("/signin");
+                alert("アカウントを作成しました。");
+                this.$router.push("/signin");
             })
-            .catch(error => {
-            alert("Error: 既に登録されているメールアドレスかパスワードが簡単すぎます。", error.message);
-            console.error("Account Regeister Error", error.message);
+            .catch((error) => {
+                alert("Error: 既に登録されているメールアドレスかパスワードが簡単すぎます。");
+                console.error(error.message);
             });
+
+            /* firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+            .then(() => {
+            })
+            .catch((error) => {
+                console.error(error.message);
+            }); */
+
+            /* firebase.auth().currentUser.sendEmailVerification()
+            .then(function() {
+                console.log('success');
+            })
+            .catch(function(error){
+                console.log(error);
+            }); */
+
         }
     },
 };

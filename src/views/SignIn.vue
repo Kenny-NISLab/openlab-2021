@@ -1,10 +1,7 @@
 <template>
-<div class="signin">
-	<v-container>
-		<h1>SING IN</h1>
-		<div>
-			<router-link to="/">Home</router-link>
-		</div>
+	<div class="signin">
+		<h1>ログイン</h1>
+		<MenuBar/>
 
 		<div>
 			<h3>E-mail</h3>
@@ -15,14 +12,30 @@
 			<input type="password" placeholder="Password" v-model="password" />
 		</div>
 		<button @click="userSingIn">Sing in Now!!</button>
-	</v-container>
-</div>
+
+		<v-form>
+			<v-row>
+				<v-text-field v-model="email"></v-text-field>
+			</v-row>
+			<v-row>
+				<v-text-field v-model="password"></v-text-field>
+			</v-row>
+			<v-row>
+				<v-btn></v-btn>
+			</v-row>
+		</v-form>
+
+	</div>
 </template>
 
 <script>
 import firebase from "../firebase.js";
+import MenuBar from '../components/MenuBar.vue';
 export default {
-	name: "singin",
+	name: "signin",
+	components: {
+		MenuBar,
+	},
 	data() {
 		return {
 		email: "",
@@ -31,12 +44,10 @@ export default {
 	},
 	methods: {
 		userSingIn() {
-		firebase
-			.auth()
-			.signInWithEmailAndPassword(this.email, this.password)
+			firebase.auth().signInWithEmailAndPassword(this.email, this.password)
 			.then(() => {
-			alert("ログインしました。");
-			this.$router.push("/mypage");
+				alert("ログインしました。");
+				this.$router.push("/");
 			})
 			.catch(() => {
 				alert("メールアドレスかパスワードが間違っています。")

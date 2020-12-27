@@ -1,16 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import firebase from "../firebase.js";
+// import firebase from "../firebase.js";
 
 Vue.use(VueRouter)
 
 const routes = [
+    {
+		path: '*',
+		name: 'NotFound',
+		component: () => import('../views/NotFound.vue')
+    },
 	{
 		path: '/',
 		name: 'Home',
 		component: Home,
-		meta: { requiresAuth: false }
 	},
 	{
 		path: '/about',
@@ -50,19 +54,28 @@ const routes = [
 	}
 ]
 
+/* outer.beforeEach((to, from, next) => {
+	const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+	if (requiresAuth) {
+		firebase.auth().onAuthStateChanged(function (user) {
+			if (user) {
+				next()
+			} else {
+				next({
+					path: '/',
+					query: { redirect: to.fullPath }
+				})
+			}
+		})
+	} else {
+		next()
+	}
+}); */
+
 const router = new VueRouter({
 	mode: 'history',
 	base: process.env.BASE_URL,
 	routes
-});
-
-router.beforeEach(async (to, from, next) => {
-	const requiresAuth = to.matched.some(recode => recode.meta.requiresAuth);
-	if (requiresAuth && !(await firebase.getCurrentUser())) {
-		next({ path: "/singin", query: { redirect: to.fullPath } });
-	} else {
-		next();
-	}
 });
 
 export default router

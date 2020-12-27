@@ -1,10 +1,16 @@
 <template>
-<div class="contactMe">
-	<v-container>
-		<h1>Contact</h1>
-		<div>
-			<router-link to="/">Home</router-link>
-		</div>
-	</v-container>
-</div>
+	<div class="contactMe">
+		<h1>お問い合わせ</h1>
+		<MenuBar/>
+	</div>
 </template>
+
+<script>
+import MenuBar from '../components/MenuBar.vue';
+export default {
+	name: 'contactme',
+	components: {
+		MenuBar,
+	}
+}
+</script>

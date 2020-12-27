@@ -11,14 +11,14 @@ const firebaseConfig = {
 	measurementId: "G-4T0MBY68DT"
 };
 
-firebase.getCurrentUser = () => {
+/* firebase.getCurrentUser = () => {
 	return new Promise((resolve, reject) => {
 		const unsubscribe = firebase.auth().onAuthStateChanged(user => {
 		unsubscribe()
 		resolve(user);
 		}, reject);
 	});
-};
+}; */
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
