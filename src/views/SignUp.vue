@@ -3,15 +3,11 @@
         <h1>アカウント作成</h1>
 		<MenuBar/>
 
-        <div>
-            <h3>メールアドレス</h3>
-            <input type="text" placeholder="E-mail" v-model="email" />
-        </div>
-        <div>
-            <h3>パスワード</h3>
-            <input type="password" placeholder="Password" v-model="password" />
-        </div>
-        <button @click="createUserAccount">アカウントを作成する</button>
+        <v-form>
+            <v-text-field v-model="email" label="メールアドレス" required></v-text-field>
+            <v-text-field v-model="password" type="password" label="パスワード" required></v-text-field>
+            <v-btn @click="createUserAccount">アカウントを作成する</v-btn>
+        </v-form>
     </div>
 </template>
 

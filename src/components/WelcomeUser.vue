@@ -1,5 +1,5 @@
 <template>
-    <h1 v-if="useremail !== null">ようこそ {{useremail}} さん</h1>
+    <h2 v-show="useremail">ようこそ {{useremail}} さん</h2>
 </template>
 
 <script>

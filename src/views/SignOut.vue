@@ -3,9 +3,7 @@
 		<h1>ログアウト</h1>
 		<MenuBar/>
 
-		<div>
-			<button @click="singout">Sing out Now!!</button>
-		</div>
+		<v-btn @click="singout">ログアウト</v-btn>
 	</div>
 </template>
 

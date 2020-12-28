@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-// import firebase from "../firebase.js";
+import firebase from "../firebase.js";
 
 Vue.use(VueRouter)
 
@@ -20,19 +20,16 @@ const routes = [
 		path: '/about',
 		name: 'About',
 		component: () => import('../views/About.vue'),
-		meta: { requiresAuth: false }
 	},
 	{
 		path: '/contactme',
 		name: 'ContactMe',
 		component: () => import('../views/ContactMe.vue'),
-		meta: { requiresAuth: false }
 	},
 	{
 		path: '/signin',
 		name: 'SignIn',
 		component: () => import('../views/SignIn.vue'),
-		meta: { requiresAuth: false }
 	},
 	{
 		path: '/signout',
@@ -44,7 +41,6 @@ const routes = [
 		path: '/signup',
 		name: 'SignUp',
 		component: () => import('../views/SignUp.vue'),
-		meta: { requiresAuth: false }
 	},
 	{
 		path: '/mypage',
@@ -54,7 +50,13 @@ const routes = [
 	}
 ]
 
-/* outer.beforeEach((to, from, next) => {
+const router = new VueRouter({
+	mode: 'history',
+	base: process.env.BASE_URL,
+	routes
+});
+
+router.beforeEach((to, from, next) => {
 	const requiresAuth = to.matched.some(record => record.meta.requiresAuth)
 	if (requiresAuth) {
 		firebase.auth().onAuthStateChanged(function (user) {
@@ -70,12 +72,6 @@ const routes = [
 	} else {
 		next()
 	}
-}); */
-
-const router = new VueRouter({
-	mode: 'history',
-	base: process.env.BASE_URL,
-	routes
 });
 
 export default router

@@ -1,5 +1,5 @@
 <template>
-	<v-app>
+	<v-app id="app">
 		<v-app-bar app color="primary"></v-app-bar>
 
 		<v-main>
@@ -17,3 +17,11 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#app{
+	max-width: 1000px;
+	margin: 0 auto;
+	text-align: center;
+}
+</style>

@@ -3,15 +3,15 @@
 		<h1>ログイン</h1>
 		<MenuBar/>
 
-		<div>
-			<h3>E-mail</h3>
-			<input type="text" placeholder="E-mail" v-model="email" />
-		</div>
-		<div>
-			<h3>Password</h3>
-			<input type="password" placeholder="Password" v-model="password" />
-		</div>
-		<button @click="userSingIn">Sing in Now!!</button>
+		<v-form class="my-2">
+			<v-text-field v-model="email" label="メールアドレス" required></v-text-field>
+			<v-text-field v-model="password" type="password" label="パスワード" required></v-text-field>
+			<v-btn @click="userSingIn">ログイン</v-btn>
+		</v-form>
+
+		<v-row class="mt-6" justify="center">
+			<p>アカウントをお持ちでない方は <router-link to="/signup">こちらからアカウント作成</router-link></p>
+		</v-row>
 	</div>
 </template>
 
