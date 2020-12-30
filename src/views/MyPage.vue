@@ -69,7 +69,13 @@ export default {
 			});
 		},
 
-		deleteReservation(){
+		deleteReservation: function(targetReservation){
+			this.$router.push({
+				path: '/mypage/delete',
+				query: {
+					reservation: targetReservation,
+				}
+			});
 		}
 	},
 	created() {

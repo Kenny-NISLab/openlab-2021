@@ -54,6 +54,12 @@ const routes = [
 		meta: { requiresAuth: true }
 	},
 	{
+		path: '/mypage/delete',
+		name: 'ConfirmDelete',
+		component: () => import('../views/ConfirmDelete.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
 		path: '/reserve',
 		name: 'ReserveVisit',
 		component: () => import('../views/ReserveVisit.vue'),
