@@ -60,6 +60,30 @@ const routes = [
 		meta: { requiresAuth: true }
 	},
 	{
+		path: '/openlab/reserve',
+		name: 'OpenlabReserve',
+		component: () => import('../views/OpenlabReserve.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/openlab/reserve/form',
+		name: 'OpenlabReserveForm',
+		component: () => import('../views/OpenlabReserveForm.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/openlab/reserve/confirm',
+		name: 'OpenlabReserveConfirm',
+		component: () => import('../views/OpenlabReserveConfirm.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/openlab/reserve/verification',
+		name: 'OpenlabReserveVerification',
+		component: () => import('../views/OpenlabReserveVerification.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
 		path: '/reserve',
 		name: 'ReserveVisit',
 		component: () => import('../views/ReserveVisit.vue'),

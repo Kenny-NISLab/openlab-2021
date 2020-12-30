@@ -1,14 +1,11 @@
 <template>
-	<div class="reserveVisit">
-		<h1>訪問予約</h1>
+	<div class="openlabReserveForm">
+		<h1>オープンラボ訪問予約</h1>
 		<WelcomeUser/>
 		<MenuBar/>
 
         <v-form ref="reserveVisitForm">
-            <h2>希望の日付を選択してください。</h2>
-            <v-date-picker class="mb-6" v-model="date" elevation="2" :allowed-dates="allowedDates" min="2021-01-01" max="2021-02-28" required></v-date-picker>
-
-            <v-select v-model="time" :items="times" label="時間を選んでください"></v-select>
+            <h2>2021年2月15日 {{ time }} で予約します。</h2>
 
             <v-text-field v-model="name" label="お名前" required></v-text-field>
 
@@ -27,44 +24,32 @@ import WelcomeUser from '../components/WelcomeUser.vue';
 import MenuBar from '../components/MenuBar.vue';
 
 export default {
-	name: "reserveVisit",
+	name: "openlabReserveForm",
 	components: {
 		WelcomeUser,
 		MenuBar,
-    },
-    data() {
-        return {
+	},
+	data() {
+		return {
             uid: '',
-            date: '',
-            time: '',
-            times: ['11:00', '13:00', '15:00', '17:00'],
             name: '',
-            studentId: '',
-            message: '',
-        }
-    },
+            time: '',
+			studentId: '',
+			message: '',
+		}
+	},
     methods: {
         submitReservation(){
             this.$router.push({
-                path: '/reserve/confirm',
+                path: '/openlab/reserve/confirm',
                 query: {
-                    date: this.date,
+                    date: '2021-02-15',
                     time: this.time,
                     name: this.name,
                     studentId: this.studentId,
                     message: this.message,
                 }
-            });
-        },
-
-        allowedDates(val) {
-            let day = new Date();
-            day = new Date(
-                day.getFullYear(),
-                day.getMonth(),
-                day.getDate() + 1,
-            );
-            return day <= new Date(val);
+            })
         },
     },
     created() {
@@ -75,6 +60,8 @@ export default {
                 this.uid = null;
             }
         });
+
+        this.time = this.$route.query.time;
     }
 }
 </script>

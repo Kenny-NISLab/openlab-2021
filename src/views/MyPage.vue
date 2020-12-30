@@ -62,6 +62,7 @@ export default {
 	},
 	methods: {
 		showMyReservation(){
+			this.myReservation = [],
 			firebase.database().ref('reservation').orderByChild('uid').equalTo(this.uid).on('value', (snapshot) => {
 				snapshot.forEach((childSnapshot) => {
 					this.myReservation.push(childSnapshot.val());
