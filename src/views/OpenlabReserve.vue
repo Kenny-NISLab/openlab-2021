@@ -7,9 +7,7 @@
         <h2>2021年2月15日にオープンラボを開催します。</h2>
         <h2>オフラインでの訪問を希望される方は希望の時間を選択してください。</h2>
 
-        <v-btn class="my-6">予約空き状況を取得する</v-btn>
-
-        <v-simple-table>
+        <v-simple-table class="my-6">
             <template v-slot:default>
                 <thead>
                     <tr>
@@ -22,7 +20,7 @@
                     <tr v-for="item in items" :key="item.time">
                         <td>{{ item.time }}</td>
                         <td>{{ item.state }} / 8</td>
-                        <td><v-btn @click="submitReservation(item.time)">予約する</v-btn></td>
+                        <td><v-btn v-show="item.state !== 8" @click="submitReservation(item.time)">予約する</v-btn></td>
                     </tr>
                 </tbody>
             </template>
@@ -95,6 +93,12 @@ export default {
                 this.uid = null;
             }
         });
+
+        for(let i in this.items){
+            firebase.database().ref('openlab/' + this.items[i].time).on('value', (parent) => {
+                this.items[i].state = parent.numChildren();
+            });
+        }
     }
 }
 </script>
