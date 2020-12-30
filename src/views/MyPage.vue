@@ -6,7 +6,7 @@
 
 		<v-btn class="" @click="showMyReservation">予約情報を取得する</v-btn>
 
-		<v-row class="my-6" justify="center" v-for="reservation in myReservation" :key="reservation.time">
+		<v-row class="my-6" justify="center" v-for="reservation in myReservation" :key="reservation.id">
 			<v-col cols="12">
 			<v-simple-table>
 				<template v-slot:default>

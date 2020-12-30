@@ -43,6 +43,11 @@ const routes = [
 		component: () => import('../views/SignUp.vue'),
 	},
 	{
+		path: '/resetpass',
+		name: 'ResetPassword',
+		component: () => import('../views/ResetPassword.vue'),
+	},
+	{
 		path: '/mypage',
 		name: 'MyPage',
 		component: () => import('../views/MyPage.vue'),
@@ -52,6 +57,19 @@ const routes = [
 		path: '/reserve',
 		name: 'ReserveVisit',
 		component: () => import('../views/ReserveVisit.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/reserve/confirm',
+		name: 'ConfirmReserve',
+		component: () => import('../views/ConfirmReserve.vue'),
+		meta: { requiresAuth: true }
+	},
+	{
+		path: '/reserve/verification',
+		name: 'VerificationReserve',
+		component: () => import('../views/VerificationReserve.vue'),
+		meta: { requiresAuth: true }
 	}
 ]
 

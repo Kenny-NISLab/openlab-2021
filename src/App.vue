@@ -5,6 +5,7 @@
 		<v-main>
 			<v-container>
 				<router-view/>
+				<div class="my-6"></div>
 			</v-container>
 		</v-main>
 	</v-app>

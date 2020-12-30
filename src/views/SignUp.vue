@@ -3,9 +3,11 @@
         <h1>アカウント作成</h1>
 		<MenuBar/>
 
-        <v-form>
-            <v-text-field v-model="email" label="メールアドレス" required></v-text-field>
-            <v-text-field v-model="password" type="password" label="パスワード" required></v-text-field>
+        <v-form ref="createAccountForm">
+            <v-text-field v-model="email" label="メールアドレス" :rules="emailRules" required></v-text-field>
+            <v-text-field v-model="password" type="password" label="パスワード" :rules="passwordRules" required></v-text-field>
+            <v-text-field v-model="confirm_password" type="password" label="パスワードを再入力してください" :rules="confirm_passwordRules" required></v-text-field>
+            <h2 class="my-3" v-show="error_message !== ''">{{ error_message }}</h2>
             <v-btn @click="createUserAccount">アカウントを作成する</v-btn>
         </v-form>
     </div>
@@ -21,22 +23,42 @@ export default {
     },
     data() {
         return {
-        email: "",
-        password: ""
+            email: '',
+			emailRules: [
+				v => !!v || '必須項目です',
+				v => /.+@.+\..+/.test(v) || 'メールアドレスが不正な形式です',
+			],
+            password: '',
+			passwordRules: [
+				v => !!v || '必須項目です',
+				v => v.length >= 8 || 'パスワードが短すぎます',
+			],
+            confirm_password: '',
+            confirm_passwordRules: [
+                v => v === this.password || 'パスワードが一致しません',
+            ],
+            error_message: '',
         };
     },
-
     methods: {
         createUserAccount() {
-            firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-            .then(() => {
-                alert("アカウントを作成しました。");
-                this.$router.push("/signin");
-            })
-            .catch((error) => {
-                alert("Error: 既に登録されているメールアドレスかパスワードが簡単すぎます。");
-                console.error(error.message);
-            });
+            if(this.$refs.createAccountForm.validate()){
+                this.error_message = '',
+                firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+                .then(() => {
+                    alert('アカウントを作成しました。 ' + this.email + ' に確認メールを送信しましたので、リンクをクリックして認証してください。');
+                    firebase.auth().languageCode = 'ja';
+                    firebase.auth().currentUser.sendEmailVerification().then(() => {
+                        this.$router.push("/");
+                    });
+                })
+                .catch((error) => {
+                    alert('Error: 既に登録されている可能性があります。');
+                    console.error(error.message);
+                });
+            }else{
+                this.error_message = 'メールアドレスとパスワードを正しく入力してください。';
+            }
         }
     },
 };

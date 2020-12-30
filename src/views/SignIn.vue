@@ -9,8 +9,11 @@
 			<v-btn @click="userSingIn">ログイン</v-btn>
 		</v-form>
 
-		<v-row class="my-6" justify="center">
-			<p>アカウントをお持ちでない方は <router-link to="/signup">こちらからアカウント作成</router-link></p>
+		<v-row class="mt-6" justify="center">
+			<p>アカウントをお持ちでない方は <router-link to="/signup">こちらから新規登録</router-link></p>
+		</v-row>
+		<v-row justify="center">
+			<p>パスワードを忘れた方は <router-link to="/resetpass">こちらから再設定</router-link></p>
 		</v-row>
 	</div>
 </template>

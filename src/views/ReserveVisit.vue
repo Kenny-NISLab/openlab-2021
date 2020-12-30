@@ -16,7 +16,7 @@
 
             <v-text-field v-model="message" label="補足事項があれば記入してください"></v-text-field>
 
-            <v-btn @click="submitReservation">予約する</v-btn>
+            <v-btn @click="submitReservation">予約確認</v-btn>
         </v-form>
 	</div>
 </template>
@@ -35,36 +35,26 @@ export default {
     data() {
         return {
             uid: '',
-            email: '',
-            today: '',
-            date: new Date().toISOString().substr(0,10),
+            date: '',
             time: '',
-            times: ['', '11:00', '13:00', '15:00', '17:00'],
+            times: ['11:00', '13:00', '15:00', '17:00'],
             name: '',
             studentId: '',
             message: '',
         }
     },
     methods: {
-        submitReservation() {
-            firebase.database().ref('reservation').push().set({
-                uid: this.uid,
-                email: this.email,
-                today: this.getToday(),
-                date: this.date,
-                time: this.time,
-                name: this.name,
-                studentId: this.studentId,
-                message: this.message,
+        submitReservation(){
+            this.$router.push({
+                path: '/reserve/confirm',
+                query: {
+                    date: this.date,
+                    time: this.time,
+                    name: this.name,
+                    studentId: this.studentId,
+                    message: this.message,
+                }
             });
-
-            alert("研究室訪問の予約を受け付けました。");
-        },
-
-        getToday(){
-            let date = new Date();
-            date.setTime(date.getTime() + 9*60*60*1000);
-            return date.toISOString().substr(0,19);
         },
 
         allowedDates(val) {
@@ -81,10 +71,8 @@ export default {
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
                 this.uid = user.uid;
-                this.email = user.email;
             }else{
                 this.uid = null;
-                this.email = null;
             }
         });
     }

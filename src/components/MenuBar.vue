@@ -3,7 +3,7 @@
         <h3 v-show="!uid">
             <router-link to="/">Home</router-link> |
             <router-link to="/about">About</router-link> |
-            <router-link to="/signin">ログイン</router-link> |
+            <router-link to="/signin">ログイン・新規登録</router-link> |
             <router-link to="/contact">お問い合わせ</router-link>
         </h3>
 
