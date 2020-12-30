@@ -3,13 +3,13 @@
 		<h1>ログイン</h1>
 		<MenuBar/>
 
-		<v-form class="my-2">
+		<v-form>
 			<v-text-field v-model="email" label="メールアドレス" required></v-text-field>
 			<v-text-field v-model="password" type="password" label="パスワード" required></v-text-field>
 			<v-btn @click="userSingIn">ログイン</v-btn>
 		</v-form>
 
-		<v-row class="mt-6" justify="center">
+		<v-row class="my-6" justify="center">
 			<p>アカウントをお持ちでない方は <router-link to="/signup">こちらからアカウント作成</router-link></p>
 		</v-row>
 	</div>
@@ -25,8 +25,8 @@ export default {
 	},
 	data() {
 		return {
-		email: "",
-		password: ""
+			email: '',
+			password: '',
 		};
 	},
 	methods: {

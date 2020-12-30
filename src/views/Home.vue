@@ -9,7 +9,6 @@
 <script>
 import WelcomeUser from '../components/WelcomeUser.vue';
 import MenuBar from '../components/MenuBar.vue';
-
 export default {
 	name: "home",
 	components: {

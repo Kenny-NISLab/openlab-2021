@@ -19,7 +19,7 @@ export default {
             }else{
                 this.useremail = null;
             }
-        })
+        });
     }
 }
 </script>

@@ -37,22 +37,6 @@ export default {
                 alert("Error: 既に登録されているメールアドレスかパスワードが簡単すぎます。");
                 console.error(error.message);
             });
-
-            /* firebase.auth().signInWithEmailAndPassword(this.email, this.password)
-            .then(() => {
-            })
-            .catch((error) => {
-                console.error(error.message);
-            }); */
-
-            /* firebase.auth().currentUser.sendEmailVerification()
-            .then(function() {
-                console.log('success');
-            })
-            .catch(function(error){
-                console.log(error);
-            }); */
-
         }
     },
 };

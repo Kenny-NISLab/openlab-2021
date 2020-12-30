@@ -22,7 +22,7 @@ const routes = [
 		component: () => import('../views/About.vue'),
 	},
 	{
-		path: '/contactme',
+		path: '/contact',
 		name: 'ContactMe',
 		component: () => import('../views/ContactMe.vue'),
 	},
@@ -47,6 +47,11 @@ const routes = [
 		name: 'MyPage',
 		component: () => import('../views/MyPage.vue'),
 		meta: { requiresAuth: true }
+	},
+	{
+		path: '/reserve',
+		name: 'ReserveVisit',
+		component: () => import('../views/ReserveVisit.vue'),
 	}
 ]
 
