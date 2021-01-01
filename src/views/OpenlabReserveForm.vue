@@ -13,7 +13,8 @@
 
             <v-text-field v-model="message" label="補足事項があれば記入してください"></v-text-field>
 
-            <v-btn @click="submitReservation">予約確認</v-btn>
+            <v-btn class="mx-6" @click="backToReservation">戻る</v-btn>
+            <v-btn class="mx-6" @click="submitReservation">予約確認</v-btn>
         </v-form>
 	</div>
 </template>
@@ -51,6 +52,10 @@ export default {
                 }
             })
         },
+
+		backToReservation(){
+			this.$router.push("/openlab/reserve");
+		},
     },
     created() {
         firebase.auth().onAuthStateChanged((user) => {

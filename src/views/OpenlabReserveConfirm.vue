@@ -59,37 +59,46 @@ export default {
 			name: '',
 			studentId: '',
 			message: '',
+			sumReserve: 0,
 		}
 	},
 	methods: {
 		confirmReservation(){
-            var newPostListRef = firebase.database().ref('openlab/' + this.time).push();
-            var postListKey = newPostListRef.key;
-            newPostListRef.set({
-                id: postListKey,
-                uid: this.uid,
-                email: this.email,
-                today: this.getToday(),
-                date: '2021-02-15',
-                time: this.time,
-                name: this.name,
-                studentId: this.studentId,
-                message: this.message,
-            });
-
-			alert("研究室訪問の予約を受け付けました。");
-			
-			this.$router.push({
-				path: "/openlab/reserve/verification",
-				query: {
+			firebase.database().ref('openlab/' + this.time).on('value', (parent) => {
+				this.sumReserve = parent.numChildren();
+			})
+			if(this.sumReserve < 8){
+				var newPostListRef = firebase.database().ref('openlab/' + this.time).push();
+				var postListKey = newPostListRef.key;
+				newPostListRef.set({
+					id: postListKey,
+					uid: this.uid,
 					email: this.email,
-					date: this.date,
+					today: this.getToday(),
+					date: '2021-02-15',
 					time: this.time,
 					name: this.name,
 					studentId: this.studentId,
 					message: this.message,
-				}
-			});
+				});
+
+				alert("研究室訪問の予約を受け付けました。");
+				
+				this.$router.push({
+					path: "/openlab/reserve/verification",
+					query: {
+						email: this.email,
+						date: this.date,
+						time: this.time,
+						name: this.name,
+						studentId: this.studentId,
+						message: this.message,
+					}
+				});
+			}else{
+				alert("エラーが発生しました。予約をやり直してください。");
+				this.$router.push("/openlab/reserve");
+			}
 		},
 
 		backToReservation(){

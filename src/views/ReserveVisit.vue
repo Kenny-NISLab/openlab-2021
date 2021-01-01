@@ -1,10 +1,13 @@
 <template>
 	<div class="reserveVisit">
-		<h1>訪問予約</h1>
+		<h1>事前日程での研究室訪問予約</h1>
 		<WelcomeUser/>
 		<MenuBar/>
 
-        <v-form ref="reserveVisitForm">
+        <h2>2021年2月15日のオープンラボ以外の日程で研究室訪問を希望される方は希望の日時を選択してください。</h2>
+        <h3>オープンラボ当日の訪問を希望される方は<router-link to="openlab/reserve">こちら</router-link>からご予約ください。</h3>
+
+        <v-form class="my-6" ref="reserveVisitForm">
             <h2>希望の日付を選択してください。</h2>
             <v-date-picker class="mb-6" v-model="date" elevation="2" :allowed-dates="allowedDates" min="2021-01-01" max="2021-02-28" required></v-date-picker>
 

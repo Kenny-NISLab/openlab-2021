@@ -6,6 +6,8 @@
 
         <h2>2021年2月15日にオープンラボを開催します。</h2>
         <h2>オフラインでの訪問を希望される方は希望の時間を選択してください。</h2>
+        <h4>前日（2月14日）までこちから予約できます。当日の予約は直接お問い合わせください。</h4>
+        <h3>当日の参加が難しい方など、他の日程での訪問を希望される方は<router-link to="/reserve">こちら</router-link>からご予約ください。</h3>
 
         <v-simple-table class="my-6">
             <template v-slot:default>
@@ -20,7 +22,7 @@
                     <tr v-for="item in items" :key="item.time">
                         <td>{{ item.time }}</td>
                         <td>{{ item.state }} / 8</td>
-                        <td><v-btn v-show="item.state !== 8" @click="submitReservation(item.time)">予約する</v-btn></td>
+                        <td><v-btn v-show="item.state < 8 && isDayBefore()" @click="submitReservation(item.time)">予約する</v-btn></td>
                     </tr>
                 </tbody>
             </template>
@@ -68,10 +70,6 @@ export default {
                     time: '16:00',
                     state: 0,
                 },
-                {
-                    time: '17:00',
-                    state: 0,
-                },
             ],
         }
     },
@@ -84,6 +82,23 @@ export default {
                 }
             });
         },
+
+        isDayBefore(){
+            var today = new Date();
+            var year = today.getFullYear();
+            var month = today.getMonth()+1;
+            var date = today.getDate();
+
+            if(year === 2021){
+                if( month === 2){
+                    return date < 15;
+                }else{
+                    return month < 2;
+                }
+            }else{
+                return year < 2021;
+            }
+        }
     },
     created() {
         firebase.auth().onAuthStateChanged((user) => {
