@@ -7,9 +7,11 @@
         <v-form ref="reserveVisitForm">
             <h2>2021年2月15日 {{ time }} で予約します。</h2>
 
-            <v-text-field v-model="name" label="お名前" required></v-text-field>
+            <h2 class="my-3" v-show="error_message !== ''">{{ error_message }}</h2>
 
-            <v-text-field v-model="studentId" label="学籍番号" required></v-text-field>
+            <v-text-field v-model="name" label="お名前" :rules="nameRules" required></v-text-field>
+
+            <v-text-field v-model="studentId" label="学籍番号" :rules="studentIdRules" required></v-text-field>
 
             <v-text-field v-model="message" label="補足事項があれば記入してください"></v-text-field>
 
@@ -34,23 +36,37 @@ export default {
 		return {
             uid: '',
             name: '',
+            nameRules: [
+				v => !!v || '必須項目です',
+            ],
             time: '',
-			studentId: '',
-			message: '',
+            studentId: '',
+            studentIdRules: [
+				v => !!v || '必須項目です',
+				v => v.length >= 8 || '学籍番号が短すぎます',
+            ],
+            message: '',
+            error_message: '',
 		}
 	},
     methods: {
         submitReservation(){
-            this.$router.push({
-                path: '/openlab/reserve/confirm',
-                query: {
-                    date: '2021-02-15',
-                    time: this.time,
-                    name: this.name,
-                    studentId: this.studentId,
-                    message: this.message,
-                }
-            })
+            if(this.$refs.reserveVisitForm.validate()){
+                this.error_message = '',
+                this.$router.push({
+                    path: '/openlab/reserve/confirm',
+                    query: {
+                        date: '2021-02-15',
+                        time: this.time,
+                        name: this.name,
+                        studentId: this.studentId,
+                        message: this.message,
+                    }
+                })
+            }else{
+                this.error_message = 'メールアドレスとパスワードを正しく入力してください。';
+            }
+
         },
 
 		backToReservation(){
