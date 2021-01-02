@@ -15,6 +15,8 @@
 
             <v-text-field v-model="message" label="補足事項があれば記入してください"></v-text-field>
 
+            <h2 class="my-3" v-show="error_message !== ''">{{ error_message }}</h2>
+
             <v-btn class="mx-6" @click="backToReservation">戻る</v-btn>
             <v-btn class="mx-6" @click="submitReservation">予約確認</v-btn>
         </v-form>
