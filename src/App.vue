@@ -26,7 +26,7 @@
 			</v-list>
 		</v-navigation-drawer>
 
-		<v-app-bar color="secondary" app>
+		<v-app-bar class="bg" app>
 			<v-app-bar-nav-icon @click="navDrawer=!navDrawer"></v-app-bar-nav-icon>
 			<v-toolbar-title>NISLAB OpenLAB</v-toolbar-title>
 
@@ -110,14 +110,16 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 #app{
-	text-align: center;
+	font-family: 'Noto Sans JP', 'Roboto', sans-serif;
 }
 
 #id{
 	max-width: 1000px;
 	margin: 0 auto;
-	text-align: center;
 }
 
 .v-toolbar__title{
@@ -129,5 +131,31 @@ export default {
 	.v-tabs{
 		display: none;
 	}
+}
+</style>
+
+<style>
+h1{
+	position: relative;
+	padding: 0.3em 0.5em;
+	margin: 0.8em 0;
+	border-left: solid 6px #3fc1c9;
+}
+h1::after{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	content: '';
+	width: 100%;
+	height: 0;
+	border-bottom: solid 2px #dddddd;
+}
+
+h2{
+	padding: 0.5em 0.8em;
+	margin: 0.8em 0;
+	color: #364f6b;
+	background-color: #f5f5f5;
+	border-radius: 6px;
 }
 </style>
