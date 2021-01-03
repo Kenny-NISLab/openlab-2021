@@ -58,7 +58,7 @@ export default {
 	data(){
 		return {
 			uid: '',
-			navDrawer: null,
+			navDrawer: false,
 			menuLogined: [
 				{
 					name: 'HOME',
@@ -114,11 +114,12 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 #app{
+	width: 100%;
 	font-family: 'Noto Sans JP', 'Roboto', sans-serif;
 }
 
-#id{
-	max-width: 1000px;
+#main{
+	width: 1200px;
 	margin: 0 auto;
 }
 
