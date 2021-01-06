@@ -5,7 +5,6 @@
 		<MenuBar/>
 
 		<v-btn class="mx-4 my-4" @click="showMyOpenlabReservation">オープンラボ訪問の予約情報</v-btn>
-		<v-btn class="mx-4 my-4" @click="showMyVisitReservation">事前訪問の予約情報</v-btn>
 
 		<h3>予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。</h3>
 
@@ -13,80 +12,41 @@
 
 		<v-row class="my-6" justify="center" v-for="openlabReservation in myOpenlabReservation" :key="openlabReservation.id">
 			<v-col cols="12">
-			<v-simple-table>
-				<template v-slot:default>
-					<tbody>
-						<tr>
-							<td>お名前</td>
-							<td>{{ openlabReservation.name }}</td>
-						</tr>
-						<tr>
-							<td>学籍番号</td>
-							<td>{{ openlabReservation.studentId }}</td>
-						</tr>
-						<tr>
-							<td>メールアドレス</td>
-							<td>{{ openlabReservation.email }}</td>
-						</tr>
-						<tr>
-							<td>予約日</td>
-							<td>{{ openlabReservation.date }}</td>
-						</tr>
-						<tr>
-							<td>予約時間</td>
-							<td>{{ openlabReservation.time }}</td>
-						</tr>
-						<tr>
-							<td>補足事項</td>
-							<td>{{ openlabReservation.message }}</td>
-						</tr>
-						<tr>
-							<td colspan="2"><v-btn v-show="isThreeDaysBefore(openlabReservation.date)" @click="deleteOpenlabReservation(openlabReservation)">この予約をキャンセルする</v-btn></td>
-						</tr>
-					</tbody>
-				</template>
-			</v-simple-table>
+				<v-simple-table>
+					<template v-slot:default>
+						<tbody>
+							<tr>
+								<td>お名前</td>
+								<td>{{ openlabReservation.name }}</td>
+							</tr>
+							<tr>
+								<td>学籍番号</td>
+								<td>{{ openlabReservation.studentId }}</td>
+							</tr>
+							<tr>
+								<td>メールアドレス</td>
+								<td>{{ openlabReservation.email }}</td>
+							</tr>
+							<tr>
+								<td>予約日</td>
+								<td>{{ openlabReservation.date }}</td>
+							</tr>
+							<tr>
+								<td>予約時間</td>
+								<td>{{ openlabReservation.time }}</td>
+							</tr>
+							<tr>
+								<td>補足事項</td>
+								<td>{{ openlabReservation.message }}</td>
+							</tr>
+							<tr>
+								<td colspan="2"><v-btn v-show="isThreeDaysBefore(openlabReservation.date)" @click="deleteOpenlabReservation(openlabReservation)">この予約をキャンセルする</v-btn></td>
+							</tr>
+						</tbody>
+					</template>
+				</v-simple-table>
 			</v-col>
 		</v-row>
-
-		<v-row class="my-6" justify="center" v-for="visitReservation in myVisitReservation" :key="visitReservation.id">
-			<v-col cols="12">
-			<v-simple-table>
-				<template v-slot:default>
-					<tbody>
-						<tr>
-							<td>お名前</td>
-							<td>{{ visitReservation.name }}</td>
-						</tr>
-						<tr>
-							<td>学籍番号</td>
-							<td>{{ visitReservation.studentId }}</td>
-						</tr>
-						<tr>
-							<td>メールアドレス</td>
-							<td>{{ visitReservation.email }}</td>
-						</tr>
-						<tr>
-							<td>予約日</td>
-							<td>{{ visitReservation.date }}</td>
-						</tr>
-						<tr>
-							<td>予約時間</td>
-							<td>{{ visitReservation.time }}</td>
-						</tr>
-						<tr>
-							<td>補足事項</td>
-							<td>{{ visitReservation.message }}</td>
-						</tr>
-						<tr>
-							<td colspan="2"><v-btn v-show="isThreeDaysBefore(visitReservation.date)" @click="deleteVisitReservation(visitReservation)">この予約をキャンセルする</v-btn></td>
-						</tr>
-					</tbody>
-				</template>
-			</v-simple-table>
-			</v-col>
-		</v-row>
-
 	</div>
 </template>
 
@@ -106,7 +66,6 @@ export default {
 			uid: '',
 			times: ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'],
 			myOpenlabReservation: [],
-			myVisitReservation: [],
 			titleMessage: '',
 		}
 	},
@@ -131,26 +90,6 @@ export default {
 					reservation: targetReservation,
 				}
 			})
-		},
-
-		showMyVisitReservation(){
-			this.titleMessage = '事前訪問の予約情報';
-			this.myVisitReservation = [];
-			this.myOpenlabReservation = [];
-			firebase.database().ref('reservation').orderByChild('uid').equalTo(this.uid).on('value', (snapshot) => {
-				snapshot.forEach((childSnapshot) => {
-					this.myVisitReservation.push(childSnapshot.val());
-				})
-			});
-		},
-
-		deleteVisitReservation: function(targetReservation){
-			this.$router.push({
-				path: '/mypage/delete',
-				query: {
-					reservation: targetReservation,
-				}
-			});
 		},
 
 		isThreeDaysBefore: function(targetDate){
