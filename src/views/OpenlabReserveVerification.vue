@@ -2,7 +2,6 @@
 	<div class="openlabReserveVerification">
 		<h1>予約完了</h1>
 		<WelcomeUser/>
-		<MenuBar/>
 
         <h2>研究室訪問の予約が完了しました。</h2>
 
@@ -47,13 +46,11 @@
 <script>
 import firebase from '../firebase.js';
 import WelcomeUser from '../components/WelcomeUser.vue';
-import MenuBar from '../components/MenuBar.vue';
 
 export default {
 	name: "verificateReserve",
 	components: {
 		WelcomeUser,
-		MenuBar,
     },
     data() {
         return {

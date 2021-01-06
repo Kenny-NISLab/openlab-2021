@@ -1,7 +1,6 @@
 <template>
     <div class="signup">
         <h1>アカウント作成</h1>
-		<MenuBar/>
 
         <v-form ref="createAccountForm">
             <v-text-field v-model="email" label="メールアドレス" :rules="emailRules" required></v-text-field>
@@ -15,11 +14,9 @@
 
 <script>
 import firebase from "../firebase.js";
-import MenuBar from '../components/MenuBar.vue';
 export default {
     name: "signup",
     components: {
-        MenuBar,
     },
     data() {
         return {

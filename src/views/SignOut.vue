@@ -1,7 +1,6 @@
 <template>
 	<div class="signout">
 		<h1>ログアウト</h1>
-		<MenuBar/>
 
 		<v-btn @click="singout">ログアウト</v-btn>
 	</div>
@@ -9,11 +8,9 @@
 
 <script>
 import firebase from "../firebase.js";
-import MenuBar from '../components/MenuBar.vue';
 export default {
 	name: "signout",
 	components: {
-		MenuBar,
 	},
 	methods: {
 		singout() {

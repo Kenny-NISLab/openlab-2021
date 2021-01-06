@@ -2,7 +2,6 @@
 	<div class="mypage">
 		<h1>マイページ</h1>
 		<WelcomeUser/>
-		<MenuBar/>
 
 		<v-btn class="mx-4 my-4" @click="showMyOpenlabReservation">オープンラボ訪問の予約情報</v-btn>
 
@@ -53,13 +52,11 @@
 <script>
 import firebase from '../firebase.js';
 import WelcomeUser from '../components/WelcomeUser.vue';
-import MenuBar from '../components/MenuBar.vue';
 
 export default {
 	name: "mypage",
 	components: {
 		WelcomeUser,
-		MenuBar
 	},
 	data() {
 		return {

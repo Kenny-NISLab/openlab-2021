@@ -2,7 +2,6 @@
 	<div class="contactMe">
 		<h1>お問い合わせ</h1>
 		<WelcomeUser/>
-		<MenuBar/>
 
 		<v-form ref="contactForm">
 			<v-text-field v-model="contactform.name" label="お名前" :rules="nameRules" required></v-text-field>
@@ -19,12 +18,10 @@
 <script>
 import firebase from "../firebase.js";
 import WelcomeUser from '../components/WelcomeUser.vue';
-import MenuBar from '../components/MenuBar.vue';
 export default {
 	name: 'contactme',
 	components: {
 		WelcomeUser,
-		MenuBar,
 	},
 	data() {
 		return {

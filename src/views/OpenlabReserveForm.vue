@@ -2,7 +2,6 @@
 	<div class="openlabReserveForm">
 		<h1>オープンラボ訪問予約</h1>
 		<WelcomeUser/>
-		<MenuBar/>
 
         <v-form ref="reserveVisitForm">
             <h2>2021年2月15日 {{ time }} で予約します。</h2>
@@ -26,13 +25,11 @@
 <script>
 import firebase from '../firebase.js';
 import WelcomeUser from '../components/WelcomeUser.vue';
-import MenuBar from '../components/MenuBar.vue';
 
 export default {
 	name: "openlabReserveForm",
 	components: {
 		WelcomeUser,
-		MenuBar,
 	},
 	data() {
 		return {
