@@ -67,10 +67,22 @@ export default {
 			firebase.database().ref('openlab/' + this.time).on('value', (parent) => {
 				this.sumReserve = parent.numChildren();
 			})
-			if(this.sumReserve < 8){
+			if(this.sumReserve < 6){
 				var newPostListRef = firebase.database().ref('openlab/' + this.time).push();
 				var postListKey = newPostListRef.key;
 				newPostListRef.set({
+					id: postListKey,
+					uid: this.uid,
+					email: this.email,
+					today: this.getToday(),
+					date: '2021-02-15',
+					time: this.time,
+					name: this.name,
+					studentId: this.studentId,
+					message: this.message,
+				});
+
+				firebase.database().ref('reservation/' + this.uid).set({
 					id: postListKey,
 					uid: this.uid,
 					email: this.email,

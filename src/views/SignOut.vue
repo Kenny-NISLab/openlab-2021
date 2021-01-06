@@ -14,15 +14,12 @@ export default {
 	},
 	methods: {
 		singout() {
-		firebase
-			.auth()
-			.signOut()
-			.then(() => {
-			alert("ログアウトしました。");
-			this.$router.push("/");
+			firebase.auth().signOut().then(() => {
+				alert("ログアウトしました。");
+				this.$router.push("/");
 			})
 			.catch(error => {
-			alert(error);
+				alert(error);
 			});
 		}
 	}

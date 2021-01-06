@@ -51,12 +51,13 @@ export default {
 	},
 	data() {
 		return {
+			uid: '',
             reservation: '',
 		}
 	},
 	methods: {
 		confirmDeleteOpenlabReservation(){
-
+			firebase.database().ref('reservation/' + this.uid).remove();
             firebase.database().ref('openlab/' + this.reservation.time + '/' + this.reservation.id).remove().then(() => {
                 alert("予約をキャンセルしました。");
                 this.$router.push("/mypage");
@@ -69,6 +70,13 @@ export default {
 	},
 	created() {        
         this.reservation = this.$route.query.reservation;
+        firebase.auth().onAuthStateChanged((user) => {
+            if(user){
+				this.uid = user.uid;
+            }else{
+				this.uid = null;
+            }
+		});
 	}
 };
 </script>

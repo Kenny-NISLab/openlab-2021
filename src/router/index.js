@@ -54,12 +54,6 @@ const routes = [
 		meta: { requiresAuth: true }
 	},
 	{
-		path: '/mypage/delete',
-		name: 'ConfirmDelete',
-		component: () => import('../views/ConfirmDelete.vue'),
-		meta: { requiresAuth: true }
-	},
-	{
 		path: '/openlab/reserve',
 		name: 'OpenlabReserve',
 		component: () => import('../views/OpenlabReserve.vue'),
