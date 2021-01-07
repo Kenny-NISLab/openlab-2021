@@ -6,6 +6,7 @@
         <h2>2021年2月15日にオープンラボを開催します。</h2>
         <h2>オフラインでの訪問を希望される方は希望の時間を選択してください。</h2>
         <h4>前日（2月14日）までこちらから予約できます。</h4>
+        <h2 v-show="error_message" class="accent--text">{{ error_message }}</h2>
 
         <v-simple-table class="my-6">
             <template v-slot:default>
@@ -63,14 +64,25 @@ export default {
                     state: 0,
                 },
             ],
+            error_message: '',
         }
     },
     methods: {
         submitReservation: function(reserveTime){
-            this.$router.push({
-                path: '/openlab/reserve/form',
-                query: {
-                    time: reserveTime,
+            firebase.database().ref('reservation').once('value', (snapshot) =>{
+                snapshot.forEach((childSnapshot) => {
+                    if(childSnapshot.key === this.uid){
+                        this.error_message = '既に予約があります。時間を変更したい方は先に予約をキャンセルしてください。';
+                    }
+                });
+            }).then(()=>{
+                if(!this.error_message){
+                    this.$router.push({
+                        path: '/openlab/reserve/form',
+                            query: {
+                                time: reserveTime,
+                            }
+                    });
                 }
             });
         },
