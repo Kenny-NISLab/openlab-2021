@@ -1,53 +1,67 @@
-// const functions = require("firebase-functions");
-// const nodemailer = require("nodemailer");
-// const gmailEmail = functions.config().gmail.email;
-// const gmailPassword = functions.config().gmail.password;
-// const adminEmail = functions.config().admin.email;
+const functions = require("firebase-functions");
+const nodemailer = require("nodemailer");
+const gmailEmail = functions.config().gmail.email;
+const gmailPassword = functions.config().gmail.password;
+const adminEmail = functions.config().admin.email;
 
 // 送信に使用するメールサーバーの設定
-// const mailTransport = nodemailer.createTransport({
-//     host: 'smtp.gmail.com',
-//     port: 465,
-//     secure: true,
-//     auth: {
-//         user: gmailEmail,
-//         pass: gmailPassword
-//     }
-// });
+const mailTransport = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: gmailEmail,
+        pass: gmailPassword
+    }
+});
 
 // 管理者用のメールテンプレート
-// const adminContents = data => {
-//     return `以下内容でお問い合わせを受けました。
+const adminContents = data => {
+return `${data.name} さん
 
-//     お名前：
-//     ${data.name}
+NISLAB 佐藤研究室です。
 
-//     学籍番号：
-//     ${data.studentId}
+以下の内容でお問い合わせを受けました。
+追って回答させていただきますのでお待ちください。
 
-//     メールアドレス：
-//     ${data.email}
 
-//     内容：
-//     ${data.message}
-//     `;
-// };
+お名前：
+${data.name}
 
-// exports.sendMail = functions.https.onCall((data, context) => {
-//     // メール設定
-//     let adminMail = {
-//         from: gmailEmail,
-//         to: adminEmail,
-//         subject: "【NISLAB Openlab】お問い合わせ",
-//         text: adminContents(data),
-//     };
+学籍番号：
+${data.studentId}
 
-//     // 管理者へのメール送信
-//     mailTransport.sendMail(adminMail, (err, info) => {
-//         if (err) {
-//             console.log(err);
-//         } else {
-//             console.log('success');
-//         }
-//     }
-// });
+メールアドレス：
+${data.email}
+
+内容：
+${data.message}
+
+
+以上、今後ともよろしくお願いいたします。
+
+*** このメールは学生が管理しています ***
+------------------------------------------------------
+同志社大学大学院 理工学研究科 情報工学専攻
+同志社大学 理工学部 情報システムデザイン学科
+ネットワーク情報システム研究室(NISLAB) 佐藤研究室
+Email: nislab.sato@gmail.com
+Address: 恵喜館101号室 (KE-101)
+------------------------------------------------------
+`;
+};
+
+exports.sendContact = functions.https.onCall(async (data, context) => {
+    let email = {
+        from: gmailEmail,
+        to: data.email,
+        cc: gmailEmail,
+        bcc: adminEmail,
+        subject: '【NISLAB】お問い合わせを受け付けました',
+        text: adminContents(data),
+    }
+    await mailTransport.sendMail(email, (err, info) => {
+        if (err) {
+            return console.log(err)
+        }
+        return console.log('success')
+    })
+})

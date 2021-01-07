@@ -21,11 +21,26 @@ const routes = [
 		name: 'About',
 		component: () => import('../views/About.vue'),
 	},
-	// {
-	// 	path: '/contact',
-	// 	name: 'ContactMe',
-	// 	component: () => import('../views/ContactMe.vue'),
-	// },
+	{
+		path: '/contact',
+		name: 'ContactMe',
+		component: () => import('../views/ContactMe.vue'),
+	},
+	{
+		path: '/contact/confirm',
+		name: 'ContactMeConfirm',
+		component: () => import('../views/ContactMeConfirm.vue'),
+	},
+	{
+		path: '/contact/verification',
+		name: 'ContactVerification',
+		component: () => import('../views/ContactVerification.vue'),
+	},
+	{
+		path: '/sample',
+		name: 'Sample',
+		component: () => import('../views/Sample.vue'),
+	},
 	{
 		path: '/signin',
 		name: 'SignIn',

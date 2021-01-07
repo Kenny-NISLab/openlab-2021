@@ -77,6 +77,10 @@ export default {
 					path: '/mypage'
 				},
 				{
+					name: 'お問い合わせ',
+					path: '/contact'
+				},
+				{
 					name: 'ログアウト',
 					path: '/signout'
 				}

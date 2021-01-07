@@ -1,16 +1,16 @@
 <template>
 	<div class="contactMe">
-		<h1>お問い合わせ</h1>
+		<h1>問い合わせ</h1>
 		<WelcomeUser/>
 
 		<v-form ref="contactForm">
-			<v-text-field v-model="contactform.name" label="お名前" :rules="nameRules" required></v-text-field>
-			<v-text-field v-model="contactform.studentId" label="学籍番号" :rules="studentIdRules" required></v-text-field>
-			<v-text-field v-model="contactform.message" label="本文" :rules="messageRules" required></v-text-field>
+			<v-text-field v-model="contactForm.name" label="お名前" :rules="nameRules" required></v-text-field>
+			<v-text-field v-model="contactForm.studentId" label="学籍番号" :rules="studentIdRules" required></v-text-field>
+			<v-text-field v-model="contactForm.message" label="問い合わせ内容" :rules="messageRules" required></v-text-field>
 
             <h2 class="my-3" v-show="error_message !== ''">{{ error_message }}</h2>
 
-			<v-btn @click="sendContact()">送信する</v-btn>
+			<v-btn @click="sendContact()">問い合わせする</v-btn>
 		</v-form>
 	</div>
 </template>
@@ -25,7 +25,7 @@ export default {
 	},
 	data() {
 		return {
-			contactform: {
+			contactForm: {
 				email: '',
 				name: '',
 				studentId: '',
@@ -45,28 +45,26 @@ export default {
 		}
 	},
 	methods: {
-		sendContact: function(){
-			if(this.$refs.contactForm.validate()){
-				this.error_message = '';
-				const mailer = firebase.functions().httpsCallable('sendMail');
-				mailer(this.contactform).then(() => {
-					alert('お問い合わせを受け付けました。');
-					this.$router.push('/');
-				}).catch(err => {
-					console.log(err);
-					alert('お問い合わせを送信できませんでした。やり直してください。');
-				})
+		sendContact(){
+            if(this.$refs.contactForm.validate()){
+                this.error_message = '',
+				this.$router.push({
+					path: "/contact/confirm",
+					query: {
+						contactForm: this.contactForm
+					}
+				});
 			}else{
-				this.error_message = '正しく入力されていません。';
-			}
+                this.error_message = 'メールアドレスとパスワードを正しく入力してください。';
+            }
 		}
 	},
     created() {
         firebase.auth().onAuthStateChanged((user) => {
             if(user){
-				this.contactform.email = user.email;
+				this.contactForm.email = user.email;
             }else{
-				this.contactform.email = null;
+				this.contactForm.email = null;
             }
         });
     }
