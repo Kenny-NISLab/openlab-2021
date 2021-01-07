@@ -41,7 +41,7 @@
 
 		<h1>写真を一部公開！</h1>
 		<v-row>
-			<v-col class="d-flex child-flex" lg="3" md="4" sm="6" v-for="image in images" :key="image">
+			<v-col class="d-flex child-flex" md="3" sm="4" cols="6" v-for="image in images" :key="image">
 				<v-card>
 					<v-img :src="image"></v-img>
 				</v-card>

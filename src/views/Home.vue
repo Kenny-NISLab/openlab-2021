@@ -5,11 +5,9 @@
 
 		<v-row class="my-6">
 			<v-col cols="12" md="6">
-				<v-carousel cycle width="100%" height="100%">
-					<v-carousel-item v-for="image in images" :key="image">
-						<v-img :src="image"></v-img>
-					</v-carousel-item>
-				</v-carousel>
+				<v-card>
+					<v-img :src="image"></v-img>
+				</v-card>
 			</v-col>
 			<v-col cols="12" md="6" align-self="center">
 				<p>こんにちは！<br/>ネットワーク情報システム研究室（<b>NISLAB</b>） 佐藤研究室です。</p>
@@ -155,13 +153,7 @@ export default {
 		return {
 			uid: '',
 			model: 0,
-			images: [
-				'/carousel/slider03.jpg',
-				'/carousel/slider01.jpg',
-				'/carousel/slider04.jpg',
-				'/carousel/slider05.jpg',
-				'/carousel/slider02.jpg',
-			],
+			image:'/carousel/slider03.jpg',
 		}
 	},
 	created() {
@@ -175,3 +167,6 @@ export default {
 	}
 }
 </script>
+
+<style scoped>
+</style>
