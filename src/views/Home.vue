@@ -5,9 +5,9 @@
 
 		<v-row class="my-6">
 			<v-col cols="12" md="6">
-				<v-carousel cycle height="auto">
+				<v-carousel cycle width="100%" height="100%">
 					<v-carousel-item v-for="image in images" :key="image">
-						<v-img :src="image" height="100%"></v-img>
+						<v-img :src="image"></v-img>
 					</v-carousel-item>
 				</v-carousel>
 			</v-col>
@@ -69,7 +69,7 @@
 							<template v-slot:default>
 								<tbody>
 									<tr>
-										<th colspan="2" class="text-center">13:00 - 14:00</th>
+										<th colspan="2" class="text-center">[ 13:00 - 14:00 ]</th>
 									</tr>
 									<tr>
 										<td class="text-center">ID</td>
@@ -92,7 +92,7 @@
 							<template v-slot:default>
 								<tbody>
 									<tr>
-										<th colspan="2" class="text-center">15:00 - 16:00</th>
+										<th colspan="2" class="text-center">[ 15:00 - 16:00 ]</th>
 									</tr>
 									<tr>
 										<td class="text-center">ID</td>
@@ -136,7 +136,7 @@
 					<v-card-title>開催日時</v-card-title>
 					<v-card-subtitle><b>11:00</b>・<b>11:30</b>・<b>14:15</b>・<b>16:00</b>・<b>16:30</b>の5回に分けて開催します。<br/>感染対策として、各回の定員を6名とさせていただき<u>完全予約制</u>にて実施させていただきます。<br/>実際に研究室生活を送ることになる部屋の様子や雰囲気を知ってもらうだけでなく、様々なお話をしたいと思っています。<br/>「ちょっと話を聞いてみたいだけなんだけど…」という方もぜひご予約ください！</v-card-subtitle>
 					<v-card-title>参加方法</v-card-title>
-					<v-card-subtitle>2日前までに<router-link to="/openlab/reserve">こちら</router-link>から参加を希望する時間の予約を行ってください。<br/>各回の定員を6名とさせていただいておりますので、ご希望の方はお早めにご予約ください。</v-card-subtitle>
+					<v-card-subtitle>2日前までに<router-link to="/openlab/reserve">こちら(ログインが必要です)</router-link>から参加を希望する時間の予約を行ってください。<br/>各回の定員を6名とさせていただいておりますので、ご希望の方はお早めにご予約ください。</v-card-subtitle>
 				</v-card>
 			</v-col>
 		</v-row>

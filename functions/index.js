@@ -15,7 +15,7 @@ const mailTransport = nodemailer.createTransport({
 
 // お問い合わせのメールテンプレート
 const adminContents = data => {
-return `${data.name} さん
+return `${data.name}さん
 
 NISLAB 佐藤研究室です。
 
@@ -69,7 +69,7 @@ exports.sendContact = functions.https.onCall(async (data, context) => {
 
 // 予約完了のメールテンプレート
 const adminReservations = data => {
-return `${data.name} さん
+return `${data.name}さん
 
 NISLAB 佐藤研究室です。
 

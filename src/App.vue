@@ -28,7 +28,7 @@
 
 		<v-app-bar class="bg" app>
 			<v-app-bar-nav-icon @click="navDrawer=!navDrawer"></v-app-bar-nav-icon>
-			<v-toolbar-title>NISLAB OpenLAB</v-toolbar-title>
+			<v-toolbar-title><a href="/" style="text-decoration: none;">OpenLAB</a></v-toolbar-title>
 
 			<v-tabs v-show="uid">
 				<v-tab v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
@@ -45,15 +45,17 @@
 			</v-container>
 		</v-main>
 
-		<v-footer color="primary" app></v-footer>
+		<Footer/>
 	</v-app>
 </template>
 
 <script>
 import firebase from './firebase.js';
+import Footer from './components/Footer.vue';
 export default {
 	name: 'App',
 	components: {
+		Footer,
 	},
 	data(){
 		return {
@@ -65,7 +67,7 @@ export default {
 					path: '/'
 				},
 				{
-					name: 'About',
+					name: 'コンテンツ',
 					path: '/about'
 				},
 				{
@@ -91,7 +93,7 @@ export default {
 					path: '/'
 				},
 				{
-					name: 'About',
+					name: 'コンテンツ',
 					path: '/about'
 				},
 				{
