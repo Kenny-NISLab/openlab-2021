@@ -5,7 +5,7 @@
 
         <h2>2021年2月15日にオープンラボを開催します。</h2>
         <h2>オフラインでの訪問を希望される方は希望の時間を選択してください。</h2>
-        <h4>前日（2月14日）までこちらから予約できます。</h4>
+        <h3>2日前（2月13日）までこちらから予約できます。</h3>
         <h2 v-show="error_message" class="accent--text">{{ error_message }}</h2>
 
         <v-simple-table class="my-6">
@@ -95,7 +95,7 @@ export default {
 
             if(year === 2021){
                 if( month === 2){
-                    return date < 15;
+                    return date < 14;
                 }else{
                     return month < 2;
                 }

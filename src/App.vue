@@ -142,15 +142,6 @@ h1{
 	margin: 0.8em 0;
 	border-left: solid 6px #3fc1c9;
 }
-h1::after{
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	content: '';
-	width: 100%;
-	height: 0;
-	border-bottom: solid 2px #dddddd;
-}
 
 h2{
 	padding: 0.5em 0.8em;
@@ -158,5 +149,10 @@ h2{
 	color: #364f6b;
 	background-color: #f5f5f5;
 	border-radius: 6px;
+}
+
+h3{
+	padding: 0.3em;
+	border-bottom: solid 2px #364f6b;
 }
 </style>
