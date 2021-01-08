@@ -55,7 +55,7 @@ export default {
 					}
 				});
 			}else{
-                this.error_message = 'メールアドレスとパスワードを正しく入力してください。';
+                this.error_message = '正しく入力してください。';
             }
 		}
 	},

@@ -1,7 +1,7 @@
 <template>
 	<div class="openlabReserveConfirm">
 		<h1>以下の内容で問い合わせしますか？</h1>
-		<WelcomeUser/>
+		<v-alert dense outlined type="error">まだ問い合わせは完了していません。</v-alert>
 
 		<v-row class="my-6" justify="center">
 			<v-col cols="12">
@@ -37,11 +37,9 @@
 
 <script>
 import firebase from '../firebase.js';
-import WelcomeUser from '../components/WelcomeUser.vue';
 export default {
 	name: "confirmContact",
 	components: {
-        WelcomeUser,
 	},
 	data() {
 		return {

@@ -3,11 +3,8 @@
 		<h1>マイページ</h1>
 		<WelcomeUser/>
 
-		<v-btn class="mx-4 my-4" @click="showMyOpenlabReservation">オープンラボ訪問の予約情報</v-btn>
-
+		<h2 v-show="titleMessage" class="my-6">{{ titleMessage }}</h2>
 		<h3>予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。</h3>
-
-		<h1 v-show="titleMessage" class="my-6">{{ titleMessage }}</h1>
 
 		<v-row class="my-6" justify="center" v-for="openlabReservation in myOpenlabReservation" :key="openlabReservation.id">
 			<v-col cols="12">
@@ -67,19 +64,6 @@ export default {
 		}
 	},
 	methods: {
-		showMyOpenlabReservation(){
-			this.titleMessage = 'オープンラボ訪問の予約情報';
-			this.myOpenlabReservation = [];
-			this.myVisitReservation = [];
-			for(let i in this.times){
-				firebase.database().ref('openlab/' + this.times[i]).orderByChild('uid').equalTo(this.uid).on('value', (snapshot) => {
-					snapshot.forEach((childSnapshot) => {
-						this.myOpenlabReservation.push(childSnapshot.val());
-					})
-				})
-			}
-		},
-
 		deleteOpenlabReservation: function(targetReservation){
 			this.$router.push({
 				path: '/openlab/reserve/delete',
@@ -114,14 +98,25 @@ export default {
 			}
 		},
 	},
-	created() {
-        firebase.auth().onAuthStateChanged((user) => {
+	async created() {
+        await firebase.auth().onAuthStateChanged((user) => {
             if(user){
                 this.uid = user.uid;
             }else{
                 this.uid = null;
             }
 		});
+
+		this.titleMessage = 'オープンラボ訪問の予約情報';
+		this.myOpenlabReservation = [];
+		
+		for(let i in this.times){
+			await firebase.database().ref('openlab/' + this.times[i]).orderByChild('uid').equalTo(this.uid).on('value', (snapshot) => {
+				snapshot.forEach((childSnapshot) => {
+					this.myOpenlabReservation.push(childSnapshot.val());
+				})
+			})
+		}
 	}
 };
 </script>

@@ -86,16 +86,12 @@
 											<th colspan="2" class="text-center">[ 13:00 - 14:00 ]</th>
 										</tr>
 										<tr>
-											<td>ID</td>
+											<td>Zoom ID</td>
 											<td></td>
 										</tr>
 										<tr>
 											<td>Password</td>
 											<td></td>
-										</tr>
-										<tr>
-											<td>URL</td>
-											<td><a href="#" target="_blank">こちらから参加<br/>(現在は無効なURLです)</a></td>
 										</tr>
 									</tbody>
 								</template>
@@ -111,16 +107,12 @@
 											<th colspan="2" class="text-center">[ 15:00 - 16:00 ]</th>
 										</tr>
 										<tr>
-											<td>ID</td>
+											<td>Zoom ID</td>
 											<td></td>
 										</tr>
 										<tr>
 											<td>Password</td>
 											<td></td>
-										</tr>
-										<tr>
-											<td>URL</td>
-											<td><a href="#" target="_blank">こちらから参加<br/>(現在は無効なURLです)</a></td>
 										</tr>
 									</tbody>
 								</template>
