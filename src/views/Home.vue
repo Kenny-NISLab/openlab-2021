@@ -28,6 +28,21 @@
 				<v-alert border="right" colored-border type="warning" elevation="2">質問や相談等のお問い合わせは、ログインしていただくことでメニューが表示されます。</v-alert>
 			</v-col>
 		</v-row>
+
+		<h1>タイムスケジュール</h1>
+		<v-row justify="center">
+			<v-col cols="12" sm="10" md="8">
+				<v-timeline dense>
+					<v-timeline-item v-for="(time, i) in times" :key="i" color="primary" small>
+						<v-card>
+							<v-card-title>{{ time.time }}</v-card-title>
+							<v-card-subtitle class="font-weight-bold accent--text">{{ time.place }}</v-card-subtitle>
+							<v-card-text>{{ time.message }}</v-card-text>
+						</v-card>
+					</v-timeline-item>
+				</v-timeline>
+			</v-col>
+		</v-row>
 		
 		<h1>オープンラボ要領</h1>
 		<h3>今年度のオープンラボはオンライン/オフラインのハイブリッド開催をします</h3>
@@ -63,50 +78,54 @@
 					<v-card-title>参加方法</v-card-title>
 					<v-card-subtitle>前日までにzoomの参加URLを下記に記載しますのでそちらから参加ください。</v-card-subtitle>
 					<v-card-text>
-						<v-simple-table dense>
-							<template v-slot:default>
-								<tbody>
-									<tr>
-										<th colspan="2" class="text-center">[ 13:00 - 14:00 ]</th>
-									</tr>
-									<tr>
-										<td class="text-center">ID</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td class="text-center">Password</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td class="text-center">URL</td>
-										<td><a href="#" target="_blank">こちらから参加(現在は無効なURLです)</a></td>
-									</tr>
-								</tbody>
-							</template>
-						</v-simple-table>
+						<v-card class="pa-2 text-center">
+							<v-simple-table dense>
+								<template v-slot:default>
+									<tbody>
+										<tr>
+											<th colspan="2" class="text-center">[ 13:00 - 14:00 ]</th>
+										</tr>
+										<tr>
+											<td>ID</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Password</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>URL</td>
+											<td><a href="#" target="_blank">こちらから参加<br/>(現在は無効なURLです)</a></td>
+										</tr>
+									</tbody>
+								</template>
+							</v-simple-table>
+						</v-card>
 					</v-card-text>
 					<v-card-text>
-						<v-simple-table dense>
-							<template v-slot:default>
-								<tbody>
-									<tr>
-										<th colspan="2" class="text-center">[ 15:00 - 16:00 ]</th>
-									</tr>
-									<tr>
-										<td class="text-center">ID</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td class="text-center">Password</td>
-										<td></td>
-									</tr>
-									<tr>
-										<td class="text-center">URL</td>
-										<td><a href="#" target="_blank">こちらから参加(現在は無効なURLです)</a></td>
-									</tr>
-								</tbody>
-							</template>
-						</v-simple-table>
+						<v-card class="pa-2 text-center">
+							<v-simple-table dense>
+								<template v-slot:default>
+									<tbody>
+										<tr>
+											<th colspan="2" class="text-center">[ 15:00 - 16:00 ]</th>
+										</tr>
+										<tr>
+											<td>ID</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>Password</td>
+											<td></td>
+										</tr>
+										<tr>
+											<td>URL</td>
+											<td><a href="#" target="_blank">こちらから参加<br/>(現在は無効なURLです)</a></td>
+										</tr>
+									</tbody>
+								</template>
+							</v-simple-table>
+						</v-card>
 					</v-card-text>
 				</v-card>
 			</v-col>
@@ -154,6 +173,33 @@ export default {
 			uid: '',
 			model: 0,
 			image:'/carousel/slider03.jpg',
+			times: [
+				{
+					time: '11:00 - (11:30) / 11:30 - (12:00)',
+					place: 'オフライン（現地）開催',
+					message: '完全予約制となりますのでご注意ください。'
+				},
+				{
+					time: '13:00 - (13:50)',
+					place: 'オンライン（zoom）開催',
+					message: '',
+				},
+				{
+					time: '14:15 - (14:45)',
+					place: 'オフライン（現地）開催',
+					message: '完全予約制となりますのでご注意ください。'
+				},
+				{
+					time: '15:00 - (15:50)',
+					place: 'オンライン（zoom）開催',
+					message: '',
+				},
+				{
+					time: '16:00 - (16:30) / 16:30 - (17:00)',
+					place: 'オフライン（現地）開催',
+					message: '完全予約制となりますのでご注意ください。'
+				},
+			],
 		}
 	},
 	created() {
