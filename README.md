@@ -17,12 +17,6 @@ This is [Open LAB Web Site](https://openlab.nislab.info/).
 
 ## npm
 
-### Project setup
-
-```
-npm install
-```
-
 ### Compiles and hot-reloads for development
 
 ```
@@ -33,12 +27,6 @@ npm run serve
 
 ```
 npm run build
-```
-
-### Lints and fixes files
-
-```
-npm run lint
 ```
 
 ## Firebase CLI
@@ -61,15 +49,12 @@ firebase deploy
 firebase deploy --only hosting,...
 ```
 
-| フラグ構文               | デプロイされるサービス/機能                |
-| :----------------------- | :----------------------------------------- |
-| --only hosting           | Firebase Hosting のコンテンツ              |
-| --only database          | Firebase Realtime Database のルール        |
-| --only storage           | Cloud Storage for Firebase のルール        |
-| --only firestore         | Cloud Firestore のルールおよびインデックス |
-| --only firestore:rules   | Cloud Firestore のルール                   |
-| --only firestore:indexes | Cloud Firestore のインデックス             |
-| --only functions         | Cloud Functions for Firebase               |
+| フラグ構文       | デプロイされるサービス/機能         |
+| :--------------- | :---------------------------------- |
+| --only hosting   | Firebase Hosting のコンテンツ       |
+| --only database  | Firebase Realtime Database のルール |
+| --only storage   | Cloud Storage for Firebase のルール |
+| --only functions | Cloud Functions for Firebase        |
 
 ## 補足
 
