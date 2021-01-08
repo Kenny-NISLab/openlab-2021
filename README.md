@@ -13,6 +13,7 @@ This is [Open LAB Web Site](https://openlab.nislab.info/).
   - Hosting
   - Functions
 - Node.js
+  - TypeScript
   - nodemailer
 
 ## npm
