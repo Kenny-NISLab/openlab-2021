@@ -19,13 +19,13 @@
 
 		<v-row>
 			<v-col cols="12">
-				<v-alert border="right" colored-border type="error" elevation="2">オフラインでの研究室訪問を希望される方は予約が必要です。必ずご確認ください。</v-alert>
+				<v-alert border="right" colored-border type="error" elevation="2">オフラインでの研究室訪問を希望される方は<router-link to="/openlab/reserve">予約が必要</router-link>です。必ずご確認ください。</v-alert>
 			</v-col>
 		</v-row>
 
 		<v-row v-show="!uid">
 			<v-col cols="12">
-				<v-alert border="right" colored-border type="warning" elevation="2">質問や相談等のお問い合わせは、ログインしていただくことでメニューが表示されます。</v-alert>
+				<v-alert border="right" colored-border type="warning" elevation="2">質問や相談等の<router-link to="/contact">お問い合わせ</router-link>は、ログインしていただくことでご利用いただけます。</v-alert>
 			</v-col>
 		</v-row>
 

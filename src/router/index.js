@@ -25,16 +25,19 @@ const routes = [
 		path: '/contact',
 		name: 'ContactMe',
 		component: () => import('../views/ContactMe.vue'),
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/contact/confirm',
 		name: 'ContactMeConfirm',
 		component: () => import('../views/ContactMeConfirm.vue'),
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/contact/verification',
 		name: 'ContactVerification',
 		component: () => import('../views/ContactVerification.vue'),
+		meta: { requiresAuth: true }
 	},
 	{
 		path: '/signin',
