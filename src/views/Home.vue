@@ -73,7 +73,7 @@
 							<li>相談会</li>
 						</ul>
 					</v-card-text>
-					<v-card-title>開催日時</v-card-title>
+					<v-card-title>開催時間</v-card-title>
 					<v-card-subtitle><b>13:00</b>と<b>15:00</b>の2回開催します。<br/>50分程度を予定していますが、途中参加/退出も大歓迎です！<br/>zoomはビデオをオンにする必要はありません。<br/>聞くだけでも大歓迎ですのでぜひご参加ください。</v-card-subtitle>
 					<v-card-title>参加方法</v-card-title>
 					<v-card-subtitle>前日までにzoomの参加URLを下記に記載しますのでそちらから参加ください。</v-card-subtitle>
@@ -150,7 +150,7 @@
 							</ul>
 						</ul>
 					</v-card-text>
-					<v-card-title>開催日時</v-card-title>
+					<v-card-title>開催時間</v-card-title>
 					<v-card-subtitle><b>11:00</b>・<b>11:30</b>・<b>14:15</b>・<b>16:00</b>・<b>16:30</b>の5回に分けて開催します。<br/>感染対策として、各回の定員を6名とさせていただき<u>完全予約制</u>にて実施させていただきます。<br/>実際に研究室生活を送ることになる部屋の様子や雰囲気を知ってもらうだけでなく、様々なお話をしたいと思っています。<br/>「ちょっと話を聞いてみたいだけなんだけど…」という方もぜひご予約ください！</v-card-subtitle>
 					<v-card-title>参加方法</v-card-title>
 					<v-card-subtitle>2日前までに<router-link to="/openlab/reserve">こちら(ログインが必要です)</router-link>から参加を希望する時間の予約を行ってください。<br/>各回の定員を6名とさせていただいておりますので、ご希望の方はお早めにご予約ください。</v-card-subtitle>
