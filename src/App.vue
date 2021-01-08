@@ -28,7 +28,7 @@
 
 		<v-app-bar class="bg" app>
 			<v-app-bar-nav-icon @click="navDrawer=!navDrawer"></v-app-bar-nav-icon>
-			<v-toolbar-title><a href="/" style="text-decoration: none;">OpenLAB</a></v-toolbar-title>
+			<v-toolbar-title><a href="/" style="text-decoration: none;">NISLAB OpenLAB</a></v-toolbar-title>
 
 			<v-tabs v-show="uid">
 				<v-tab v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
