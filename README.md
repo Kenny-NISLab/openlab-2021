@@ -2,6 +2,8 @@
 
 This is [Open LAB Web Site](https://openlab.nislab.info/).
 
+> https://openlab.nislab.info/
+
 ## Assets
 
 - Vue.js
@@ -13,8 +15,6 @@ This is [Open LAB Web Site](https://openlab.nislab.info/).
   - Hosting
   - Functions
 - Node.js
-  - TypeScript
-  - nodemailer
 
 ## npm
 
@@ -56,9 +56,3 @@ firebase deploy --only hosting,...
 | --only database  | Firebase Realtime Database のルール |
 | --only storage   | Cloud Storage for Firebase のルール |
 | --only functions | Cloud Functions for Firebase        |
-
-## 補足
-
-We must have firebase config.
-
-> /src/firebase.js
