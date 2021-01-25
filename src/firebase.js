@@ -2,15 +2,14 @@ import firebase from 'firebase'
 import 'firebase/auth'
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyAKF9Cdf7AEB631RMdVlgxBAdY0p9LNGo8',
-  authDomain: 'open-nislab.firebaseapp.com',
-  databaseURL: 'https://open-nislab-default-rtdb.firebaseio.com',
-  projectId: 'open-nislab',
-  storageBucket: 'open-nislab.appspot.com',
-  messagingSenderId: '1082535253333',
-  appId: '1:1082535253333:web:c0e4499e6f07a6fa970bdc',
-  measurementId: 'G-4T0MBY68DT'
-
+  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
+  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.VUE_APP_FIREBASE_APP_ID,
+  measurementId: process.env.VUE_APP_FIREBASE_MEASUREMENT_ID
 }
 
 // Initialize Firebase
