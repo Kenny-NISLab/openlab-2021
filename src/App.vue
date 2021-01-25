@@ -1,117 +1,117 @@
 <template>
-	<v-app id="app">
-		<v-navigation-drawer v-model="navDrawer" app>
-			<v-list nav>
-				<v-list-item>
-					<v-list-item-content>
-						<v-list-item-title>NISLAB OpenLAB</v-list-item-title>
-						<v-list-item-subtitle>ネットワーク情報システム研究室<br/>佐藤研究室</v-list-item-subtitle>
-					</v-list-item-content>
-				</v-list-item>
+  <v-app id="app">
+    <v-navigation-drawer v-model="navDrawer" app>
+      <v-list nav>
+        <v-list-item>
+          <v-list-item-content>
+            <v-list-item-title>NISLAB OpenLAB</v-list-item-title>
+            <v-list-item-subtitle>ネットワーク情報システム研究室<br/>佐藤研究室</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
 
-				<v-divider></v-divider>
-				
-				<v-list-item-group v-show="uid">
-					<v-list-item v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">
-						<v-list-item-title>{{ menuItem.name }}</v-list-item-title>
-					</v-list-item>
-				</v-list-item-group>
+        <v-divider></v-divider>
 
-				<v-list-item-group v-show="!uid">
-					<v-list-item v-for="menuItem in menuLogouted" :key="menuItem.name" :to="menuItem.path">
-						<v-list-item-title>{{ menuItem.name }}</v-list-item-title>
-					</v-list-item>
-				</v-list-item-group>
-			</v-list>
-		</v-navigation-drawer>
+        <v-list-item-group v-show="uid">
+          <v-list-item v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">
+            <v-list-item-title>{{ menuItem.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
 
-		<v-app-bar class="bg" app>
-			<v-app-bar-nav-icon @click="navDrawer=!navDrawer"></v-app-bar-nav-icon>
-			<v-toolbar-title><a href="/" style="text-decoration: none;">NISLAB OpenLAB</a></v-toolbar-title>
+        <v-list-item-group v-show="!uid">
+          <v-list-item v-for="menuItem in menuLogouted" :key="menuItem.name" :to="menuItem.path">
+            <v-list-item-title>{{ menuItem.name }}</v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
 
-			<v-tabs v-show="uid">
-				<v-tab v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
-			</v-tabs>
+    <v-app-bar class="bg" app>
+      <v-app-bar-nav-icon @click="navDrawer=!navDrawer"></v-app-bar-nav-icon>
+      <v-toolbar-title><a href="/" style="text-decoration: none;">NISLAB OpenLAB</a></v-toolbar-title>
 
-			<v-tabs v-show="!uid">
-				<v-tab v-for="menuItem in menuLogouted" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
-			</v-tabs>
-		</v-app-bar>
+      <v-tabs v-show="uid">
+        <v-tab v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
+      </v-tabs>
 
-		<v-main id="main">
-			<v-container>
-				<router-view/>
-			</v-container>
-		</v-main>
+      <v-tabs v-show="!uid">
+        <v-tab v-for="menuItem in menuLogouted" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
+      </v-tabs>
+    </v-app-bar>
 
-		<Footer/>
-	</v-app>
+    <v-main id="main">
+      <v-container>
+        <router-view/>
+      </v-container>
+    </v-main>
+
+    <Footer/>
+  </v-app>
 </template>
 
 <script>
-import firebase from './firebase.js';
-import Footer from './components/Footer.vue';
+import firebase from './firebase.js'
+import Footer from './components/Footer.vue'
 export default {
-	name: 'App',
-	components: {
-		Footer,
-	},
-	data(){
-		return {
-			uid: '',
-			navDrawer: false,
-			menuLogined: [
-				{
-					name: 'HOME',
-					path: '/'
-				},
-				{
-					name: 'コンテンツ',
-					path: '/about'
-				},
-				{
-					name: 'オープンラボ訪問予約',
-					path: '/openlab/reserve'
-				},
-				{
-					name: 'マイページ',
-					path: '/mypage'
-				},
-				{
-					name: 'お問い合わせ',
-					path: '/contact'
-				},
-				{
-					name: 'ログアウト',
-					path: '/signout'
-				}
-			],
-			menuLogouted: [
-				{
-					name: 'HOME',
-					path: '/'
-				},
-				{
-					name: 'コンテンツ',
-					path: '/about'
-				},
-				{
-					name: 'ログイン・新規登録',
-					path: '/signin'
-				}
-			],
-		}
-	},
-    created(){
-        firebase.auth().onAuthStateChanged((user) => {
-            if(user){
-                this.uid = user.uid;
-            }else{
-                this.uid = null;
-            }
-        });
+  name: 'App',
+  components: {
+    Footer
+  },
+  data () {
+    return {
+      uid: '',
+      navDrawer: false,
+      menuLogined: [
+        {
+          name: 'HOME',
+          path: '/'
+        },
+        {
+          name: 'コンテンツ',
+          path: '/about'
+        },
+        {
+          name: 'オープンラボ訪問予約',
+          path: '/openlab/reserve'
+        },
+        {
+          name: 'マイページ',
+          path: '/mypage'
+        },
+        {
+          name: 'お問い合わせ',
+          path: '/contact'
+        },
+        {
+          name: 'ログアウト',
+          path: '/signout'
+        }
+      ],
+      menuLogouted: [
+        {
+          name: 'HOME',
+          path: '/'
+        },
+        {
+          name: 'コンテンツ',
+          path: '/about'
+        },
+        {
+          name: 'ログイン・新規登録',
+          path: '/signin'
+        }
+      ]
     }
-};
+  },
+  created () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.uid = user.uid
+      } else {
+        this.uid = null
+      }
+    })
+  }
+}
 </script>
 
 <style scoped>

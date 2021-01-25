@@ -1,150 +1,150 @@
 <template>
-	<div class="openlabReserveConfirm">
-		<h1>以下の日時・情報で予約しますか？</h1>
-		<v-alert dense outlined type="error">まだ予約は完了していません。</v-alert>
+  <div class="openlabReserveConfirm">
+    <h1>以下の日時・情報で予約しますか？</h1>
+    <v-alert dense outlined type="error">まだ予約は完了していません。</v-alert>
 
-		<v-row class="my-6" justify="center">
-			<v-col cols="12">
-				<v-simple-table>
-					<template v-slot:default>
-						<tbody>
-							<tr>
-								<td>お名前</td>
-								<td>{{ reserveForm.name }}</td>
-							</tr>
-							<tr>
-								<td>学籍番号</td>
-								<td>{{ reserveForm.studentId }}</td>
-							</tr>
-							<tr>
-								<td>メールアドレス</td>
-								<td>{{ reserveForm.email }}</td>
-							</tr>
-							<tr>
-								<td>予約日</td>
-								<td>{{ reserveForm.date }}</td>
-							</tr>
-							<tr>
-								<td>予約時間</td>
-								<td>{{ reserveForm.time }}</td>
-							</tr>
-							<tr>
-								<td>補足事項</td>
-								<td>{{ reserveForm.message }}</td>
-							</tr>
-						</tbody>
-					</template>
-				</v-simple-table>
-			</v-col>
-		</v-row>
+    <v-row class="my-6" justify="center">
+      <v-col cols="12">
+        <v-simple-table>
+          <template #default>
+            <tbody>
+              <tr>
+                <td>お名前</td>
+                <td>{{ reserveForm.name }}</td>
+              </tr>
+              <tr>
+                <td>学籍番号</td>
+                <td>{{ reserveForm.studentId }}</td>
+              </tr>
+              <tr>
+                <td>メールアドレス</td>
+                <td>{{ reserveForm.email }}</td>
+              </tr>
+              <tr>
+                <td>予約日</td>
+                <td>{{ reserveForm.date }}</td>
+              </tr>
+              <tr>
+                <td>予約時間</td>
+                <td>{{ reserveForm.time }}</td>
+              </tr>
+              <tr>
+                <td>補足事項</td>
+                <td>{{ reserveForm.message }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+      </v-col>
+    </v-row>
 
-		<v-btn class="mx-6" @click="backToReservation()">戻る</v-btn>
-		<v-btn class="mx-6" @click="confirmReservation()">予約する</v-btn>
-	</div>
+    <v-btn class="mx-6" @click="backToReservation()">戻る</v-btn>
+    <v-btn class="mx-6" @click="confirmReservation()">予約する</v-btn>
+  </div>
 </template>
 
 <script>
-import firebase from '../firebase.js';
+import firebase from '../firebase.js'
 
 export default {
-	name: "confirmReserve",
-	components: {
-	},
-	data() {
-		return {
-			reserveForm: {
-				uid: '',
-				email: '',
-				today: '',
-				date: '',
-				time: '',
-				name: '',
-				studentId: '',
-				message: '',
-			},
-			sumReserve: 0,
-		}
-	},
-	methods: {
-		confirmReservation(){
-			firebase.database().ref('openlab/' + this.reserveForm.time).on('value', (parent) => {
-				this.sumReserve = parent.numChildren();
-			})
-			if(this.sumReserve < 6){
-				const sendMail = firebase.functions().httpsCallable('sendReservation')
-				sendMail(this.reserveForm);
+  name: 'ConfirmReserve',
+  components: {
+  },
+  data () {
+    return {
+      reserveForm: {
+        uid: '',
+        email: '',
+        today: '',
+        date: '',
+        time: '',
+        name: '',
+        studentId: '',
+        message: ''
+      },
+      sumReserve: 0
+    }
+  },
+  created () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.reserveForm.uid = user.uid
+        this.reserveForm.email = user.email
+      } else {
+        this.reserveForm.uid = null
+        this.reserveForm.email = null
+      }
+    })
 
-				var newPostListRef = firebase.database().ref('openlab/' + this.reserveForm.time).push();
-				var postListKey = newPostListRef.key;
-				newPostListRef.set({
-					id: postListKey,
-					uid: this.reserveForm.uid,
-					email: this.reserveForm.email,
-					today: this.getToday(),
-					date: '2021-02-15',
-					time: this.reserveForm.time,
-					name: this.reserveForm.name,
-					studentId: this.reserveForm.studentId,
-					message: this.reserveForm.message,
-				});
+    this.reserveForm.time = this.$route.query.time
+    this.reserveForm.name = this.$route.query.name
+    this.reserveForm.date = this.$route.query.date
+    this.reserveForm.studentId = this.$route.query.studentId
+    this.reserveForm.message = this.$route.query.message
+  },
+  methods: {
+    confirmReservation () {
+      firebase.database().ref('openlab/' + this.reserveForm.time).on('value', (parent) => {
+        this.sumReserve = parent.numChildren()
+      })
+      if (this.sumReserve < 6) {
+        const sendMail = firebase.functions().httpsCallable('sendReservation')
+        sendMail(this.reserveForm)
 
-				firebase.database().ref('reservation/' + this.reserveForm.uid).set({
-					id: postListKey,
-					uid: this.reserveForm.uid,
-					email: this.reserveForm.email,
-					today: this.getToday(),
-					date: '2021-02-15',
-					time: this.reserveForm.time,
-					name: this.reserveForm.name,
-					studentId: this.reserveForm.studentId,
-					message: this.reserveForm.message,
-				});
+        const newPostListRef = firebase.database().ref('openlab/' + this.reserveForm.time).push()
+        const postListKey = newPostListRef.key
+        newPostListRef.set({
+          id: postListKey,
+          uid: this.reserveForm.uid,
+          email: this.reserveForm.email,
+          today: this.getToday(),
+          date: '2021-02-15',
+          time: this.reserveForm.time,
+          name: this.reserveForm.name,
+          studentId: this.reserveForm.studentId,
+          message: this.reserveForm.message
+        })
 
-				alert("研究室訪問の予約を受け付けました。");
-				
-				this.$router.push({
-					path: "/openlab/reserve/verification",
-					query: {
-						email: this.reserveForm.email,
-						date: this.reserveForm.date,
-						time: this.reserveForm.time,
-						name: this.reserveForm.name,
-						studentId: this.reserveForm.studentId,
-						message: this.reserveForm.message,
-					}
-				});
-			}else{
-				alert("エラーが発生しました。予約をやり直してください。");
-				this.$router.push("/openlab/reserve");
-			}
-		},
+        firebase.database().ref('reservation/' + this.reserveForm.uid).set({
+          id: postListKey,
+          uid: this.reserveForm.uid,
+          email: this.reserveForm.email,
+          today: this.getToday(),
+          date: '2021-02-15',
+          time: this.reserveForm.time,
+          name: this.reserveForm.name,
+          studentId: this.reserveForm.studentId,
+          message: this.reserveForm.message
+        })
 
-		backToReservation(){
-			this.$router.push("/openlab/reserve");
-		},
+        alert('研究室訪問の予約を受け付けました。')
 
-        getToday(){
-            let date = new Date();
-            date.setTime(date.getTime() + 9*60*60*1000);
-            return date.toISOString().substr(0,19);
-        },
-	},
-	created() {
-        firebase.auth().onAuthStateChanged((user) => {
-            if(user){
-				this.reserveForm.uid = user.uid;
-				this.reserveForm.email = user.email;
-            }else{
-				this.reserveForm.uid = null;
-				this.reserveForm.email = null;
-            }
-		});
-		
-		this.reserveForm.time = this.$route.query.time;
-		this.reserveForm.name = this.$route.query.name;
-		this.reserveForm.date = this.$route.query.date;
-		this.reserveForm.studentId = this.$route.query.studentId;
-		this.reserveForm.message = this.$route.query.message;
-	}
-};
+        this.$router.push({
+          path: '/openlab/reserve/verification',
+          query: {
+            email: this.reserveForm.email,
+            date: this.reserveForm.date,
+            time: this.reserveForm.time,
+            name: this.reserveForm.name,
+            studentId: this.reserveForm.studentId,
+            message: this.reserveForm.message
+          }
+        })
+      } else {
+        alert('エラーが発生しました。予約をやり直してください。')
+        this.$router.push('/openlab/reserve')
+      }
+    },
+
+    backToReservation () {
+      this.$router.push('/openlab/reserve')
+    },
+
+    getToday () {
+      const date = new Date()
+      date.setTime(date.getTime() + 9 * 60 * 60 * 1000)
+      return date.toISOString().substr(0, 19)
+    }
+  }
+}
 </script>

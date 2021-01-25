@@ -1,26 +1,26 @@
 <template>
-    <h4 v-show="useremail">ようこそ {{useremail}} さん</h4>
+  <h4 v-show="useremail">ようこそ {{useremail}} さん</h4>
 </template>
 
 <script>
-import firebase from "../firebase.js";
+import firebase from '../firebase.js'
 
 export default {
-    name: 'welcomeuser',
-    data(){
-        return{
-            useremail: null,
-        }
-    },
-    created(){
-        firebase.auth().onAuthStateChanged((user) => {
-            if(user){
-                this.useremail = user.email;
-            }else{
-                this.useremail = null;
-            }
-        });
+  name: 'Welcomeuser',
+  data () {
+    return {
+      useremail: null
     }
+  },
+  created () {
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.useremail = user.email
+      } else {
+        this.useremail = null
+      }
+    })
+  }
 }
 </script>
 
