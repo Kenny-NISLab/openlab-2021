@@ -12,7 +12,6 @@
 				<v-divider></v-divider>
 				
 				<v-list-item-group v-show="uid">
-
 					<v-list-item v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">
 						<v-list-item-title>{{ menuItem.name }}</v-list-item-title>
 					</v-list-item>
