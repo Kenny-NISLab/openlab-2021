@@ -1,6 +1,6 @@
 # NISLAB OpenLAB 特設アプリ
 
-![Build/Deploy](https://github.com/kogepanh/openlab/workflows/Build/Deploy/badge.svg?branch=main)
+![Build/Deploy](https://github.com/kogepanh/openlab/workflows/Build/Deploy/badge.svg)
 ![License](https://img.shields.io/github/license/kogepanh/openlab)
 
 研究室オープンラボ開催に伴い、新型コロナウイルス感染症対策を考慮した訪問予約アプリ
