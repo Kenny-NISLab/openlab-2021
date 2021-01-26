@@ -118,46 +118,46 @@ export default {
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-#app{
-	width: 100%;
-	font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+#app {
+  width: 100%;
+  font-family: 'Noto Sans JP', 'Roboto', sans-serif;
 }
 
-#main{
-	width: 1200px;
-	margin: 0 auto;
+#main {
+  width: 1200px;
+  margin: 0 auto;
 }
 
-.v-toolbar__title{
-	overflow: visible !important;
-	margin-right: 50px !important;
+.v-toolbar__title {
+  margin-right: 50px !important;
+  overflow: visible !important;
 }
 
 @media screen and (max-width: 1000px) {
-	.v-tabs{
-		display: none;
-	}
+  .v-tabs {
+    display: none;
+  }
 }
 </style>
 
 <style>
-h1{
-	position: relative;
-	padding: 0.3em 0.5em;
-	margin: 0.8em 0;
-	border-left: solid 6px #3fc1c9;
+h1 {
+  position: relative;
+  padding: 0.3em 0.5em;
+  margin: 0.8em 0;
+  border-left: solid 6px #3fc1c9;
 }
 
-h2{
-	padding: 0.5em 0.8em;
-	margin: 0.8em 0;
-	color: #364f6b;
-	background-color: #f5f5f5;
-	border-radius: 6px;
+h2 {
+  padding: 0.5em 0.8em;
+  margin: 0.8em 0;
+  color: #364f6b;
+  background-color: #f5f5f5;
+  border-radius: 6px;
 }
 
-h3{
-	padding: 0.3em;
-	border-bottom: solid 2px #364f6b;
+h3 {
+  padding: 0.3em;
+  border-bottom: solid 2px #364f6b;
 }
 </style>
