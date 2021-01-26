@@ -1,12 +1,22 @@
 <template>
   <div class="mypage">
     <h1>マイページ</h1>
-    <WelcomeUser/>
+    <WelcomeUser />
 
-    <h2 v-show="titleMessage" class="my-6">{{ titleMessage }}</h2>
+    <h2
+      v-show="titleMessage"
+      class="my-6"
+    >
+      {{ titleMessage }}
+    </h2>
     <h3>予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。</h3>
 
-    <v-row v-for="openlabReservation in myOpenlabReservation" :key="openlabReservation.id" class="my-6" justify="center">
+    <v-row
+      v-for="openlabReservation in myOpenlabReservation"
+      :key="openlabReservation.id"
+      class="my-6"
+      justify="center"
+    >
       <v-col cols="12">
         <v-simple-table>
           <template #default>
@@ -36,7 +46,14 @@
                 <td>{{ openlabReservation.message }}</td>
               </tr>
               <tr>
-                <td colspan="2"><v-btn v-show="isThreeDaysBefore(openlabReservation.date)" @click="deleteOpenlabReservation(openlabReservation)">この予約をキャンセルする</v-btn></td>
+                <td colspan="2">
+                  <v-btn
+                    v-show="isThreeDaysBefore(openlabReservation.date)"
+                    @click="deleteOpenlabReservation(openlabReservation)"
+                  >
+                    この予約をキャンセルする
+                  </v-btn>
+                </td>
               </tr>
             </tbody>
           </template>

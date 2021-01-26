@@ -1,12 +1,17 @@
 <template>
   <div class="openlabReserve">
     <h1>オープンラボ訪問予約</h1>
-    <WelcomeUser/>
+    <WelcomeUser />
 
     <h2>2021年2月15日にオープンラボを開催します。</h2>
     <h2>オフラインでの訪問を希望される方は希望の時間を選択してください。</h2>
     <h3>2日前（2月13日）までこちらから予約できます。</h3>
-    <h2 v-show="error_message" class="accent--text">{{ error_message }}</h2>
+    <h2
+      v-show="error_message"
+      class="accent--text"
+    >
+      {{ error_message }}
+    </h2>
 
     <v-simple-table class="my-6">
       <template #default>
@@ -14,19 +19,28 @@
           <tr>
             <td>時間</td>
             <td>予約状況</td>
-            <td></td>
+            <td />
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in items" :key="item.time">
+          <tr
+            v-for="item in items"
+            :key="item.time"
+          >
             <td>{{ item.time }}</td>
             <td>{{ item.state }} / 6</td>
-            <td><v-btn v-show="item.state < 6 && isDayBefore()" @click="submitReservation(item.time)">予約する</v-btn></td>
+            <td>
+              <v-btn
+                v-show="item.state < 6 && isDayBefore()"
+                @click="submitReservation(item.time)"
+              >
+                予約する
+              </v-btn>
+            </td>
           </tr>
         </tbody>
       </template>
     </v-simple-table>
-
   </div>
 </template>
 

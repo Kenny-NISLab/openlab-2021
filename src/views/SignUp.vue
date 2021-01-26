@@ -3,11 +3,35 @@
     <h1>アカウント作成</h1>
 
     <v-form ref="createAccountForm">
-      <v-text-field v-model="email" label="メールアドレス" :rules="emailRules" required></v-text-field>
-      <v-text-field v-model="password" type="password" label="パスワード" :rules="passwordRules" required></v-text-field>
-      <v-text-field v-model="confirm_password" type="password" label="パスワードを再入力してください" :rules="confirm_passwordRules" required></v-text-field>
-      <h2 v-show="error_message !== ''" class="my-3">{{ error_message }}</h2>
-      <v-btn @click="createUserAccount">アカウントを作成する</v-btn>
+      <v-text-field
+        v-model="email"
+        label="メールアドレス"
+        :rules="emailRules"
+        required
+      />
+      <v-text-field
+        v-model="password"
+        type="password"
+        label="パスワード"
+        :rules="passwordRules"
+        required
+      />
+      <v-text-field
+        v-model="confirm_password"
+        type="password"
+        label="パスワードを再入力してください"
+        :rules="confirm_passwordRules"
+        required
+      />
+      <h2
+        v-show="error_message !== ''"
+        class="my-3"
+      >
+        {{ error_message }}
+      </h2>
+      <v-btn @click="createUserAccount">
+        アカウントを作成する
+      </v-btn>
     </v-form>
   </div>
 </template>

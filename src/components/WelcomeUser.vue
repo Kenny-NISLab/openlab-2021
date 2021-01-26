@@ -1,5 +1,7 @@
 <template>
-  <h4 v-show="useremail">ようこそ {{useremail}} さん</h4>
+  <h4 v-show="useremail">
+    ようこそ {{ useremail }} さん
+  </h4>
 </template>
 
 <script>
@@ -25,7 +27,7 @@ export default {
 </script>
 
 <style scoped>
-h4{
-    text-align: right;
+h4 {
+  text-align: right;
 }
 </style>

@@ -1,50 +1,81 @@
 <template>
   <v-app id="app">
-    <v-navigation-drawer v-model="navDrawer" app>
+    <v-navigation-drawer
+      v-model="navDrawer"
+      app
+    >
       <v-list nav>
         <v-list-item>
           <v-list-item-content>
             <v-list-item-title>NISLAB OpenLAB</v-list-item-title>
-            <v-list-item-subtitle>ネットワーク情報システム研究室<br/>佐藤研究室</v-list-item-subtitle>
+            <v-list-item-subtitle>ネットワーク情報システム研究室<br>佐藤研究室</v-list-item-subtitle>
           </v-list-item-content>
         </v-list-item>
 
-        <v-divider></v-divider>
+        <v-divider />
 
         <v-list-item-group v-show="uid">
-          <v-list-item v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">
+          <v-list-item
+            v-for="menuItem in menuLogined"
+            :key="menuItem.name"
+            :to="menuItem.path"
+          >
             <v-list-item-title>{{ menuItem.name }}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
 
         <v-list-item-group v-show="!uid">
-          <v-list-item v-for="menuItem in menuLogouted" :key="menuItem.name" :to="menuItem.path">
+          <v-list-item
+            v-for="menuItem in menuLogouted"
+            :key="menuItem.name"
+            :to="menuItem.path"
+          >
             <v-list-item-title>{{ menuItem.name }}</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar class="bg" app>
-      <v-app-bar-nav-icon @click="navDrawer=!navDrawer"></v-app-bar-nav-icon>
-      <v-toolbar-title><a href="/" style="text-decoration: none;">NISLAB OpenLAB</a></v-toolbar-title>
+    <v-app-bar
+      class="bg"
+      app
+    >
+      <v-app-bar-nav-icon @click="navDrawer=!navDrawer" />
+      <v-toolbar-title>
+        <a
+          href="/"
+          style="text-decoration: none;"
+        >NISLAB OpenLAB</a>
+      </v-toolbar-title>
 
       <v-tabs v-show="uid">
-        <v-tab v-for="menuItem in menuLogined" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
+        <v-tab
+          v-for="menuItem in menuLogined"
+          :key="menuItem.name"
+          :to="menuItem.path"
+        >
+          {{ menuItem.name }}
+        </v-tab>
       </v-tabs>
 
       <v-tabs v-show="!uid">
-        <v-tab v-for="menuItem in menuLogouted" :key="menuItem.name" :to="menuItem.path">{{ menuItem.name }}</v-tab>
+        <v-tab
+          v-for="menuItem in menuLogouted"
+          :key="menuItem.name"
+          :to="menuItem.path"
+        >
+          {{ menuItem.name }}
+        </v-tab>
       </v-tabs>
     </v-app-bar>
 
     <v-main id="main">
       <v-container>
-        <router-view/>
+        <router-view />
       </v-container>
     </v-main>
 
-    <Footer/>
+    <Footer />
   </v-app>
 </template>
 

@@ -1,12 +1,15 @@
 <template>
   <div class="openlabReserveVerification">
     <h1>予約完了</h1>
-    <WelcomeUser/>
+    <WelcomeUser />
 
     <h2>研究室訪問の仮予約が完了しました。</h2>
     <h3>後ほど、詳細に関する案内のメールを送信させていただきます。</h3>
 
-    <v-row class="my-6" justify="center">
+    <v-row
+      class="my-6"
+      justify="center"
+    >
       <v-col cols="12">
         <v-simple-table>
           <template #default>

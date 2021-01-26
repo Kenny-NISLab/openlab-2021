@@ -1,9 +1,18 @@
 <template>
   <div class="openlabReserveConfirm">
     <h1>以下の日時・情報で予約しますか？</h1>
-    <v-alert dense outlined type="error">まだ予約は完了していません。</v-alert>
+    <v-alert
+      dense
+      outlined
+      type="error"
+    >
+      まだ予約は完了していません。
+    </v-alert>
 
-    <v-row class="my-6" justify="center">
+    <v-row
+      class="my-6"
+      justify="center"
+    >
       <v-col cols="12">
         <v-simple-table>
           <template #default>
@@ -38,8 +47,18 @@
       </v-col>
     </v-row>
 
-    <v-btn class="mx-6" @click="backToReservation()">戻る</v-btn>
-    <v-btn class="mx-6" @click="confirmReservation()">予約する</v-btn>
+    <v-btn
+      class="mx-6"
+      @click="backToReservation()"
+    >
+      戻る
+    </v-btn>
+    <v-btn
+      class="mx-6"
+      @click="confirmReservation()"
+    >
+      予約する
+    </v-btn>
   </div>
 </template>
 
