@@ -2,7 +2,10 @@
   <div class="confirmOpenlabDelete">
     <h1>以下の予約をキャンセルしますか？</h1>
 
-    <v-row class="my-6" justify="center">
+    <v-row
+      class="my-6"
+      justify="center"
+    >
       <v-col cols="12">
         <v-simple-table>
           <template #default>
@@ -37,8 +40,18 @@
       </v-col>
     </v-row>
 
-    <v-btn class="mx-6" @click="backToReservation">戻る</v-btn>
-    <v-btn class="mx-6" @click="confirmDeleteOpenlabReservation">キャンセルする</v-btn>
+    <v-btn
+      class="mx-6"
+      @click="backToReservation"
+    >
+      戻る
+    </v-btn>
+    <v-btn
+      class="mx-6"
+      @click="confirmDeleteOpenlabReservation"
+    >
+      キャンセルする
+    </v-btn>
   </div>
 </template>
 

@@ -1,9 +1,18 @@
 <template>
   <div class="openlabReserveConfirm">
     <h1>以下の内容で問い合わせしますか？</h1>
-    <v-alert dense outlined type="error">まだ問い合わせは完了していません。</v-alert>
+    <v-alert
+      dense
+      outlined
+      type="error"
+    >
+      まだ問い合わせは完了していません。
+    </v-alert>
 
-    <v-row class="my-6" justify="center">
+    <v-row
+      class="my-6"
+      justify="center"
+    >
       <v-col cols="12">
         <v-simple-table>
           <template #default>
@@ -30,8 +39,18 @@
       </v-col>
     </v-row>
 
-    <v-btn class="mx-6" @click="backToContact()">戻る</v-btn>
-    <v-btn class="mx-6" @click="confirmContact()">予約する</v-btn>
+    <v-btn
+      class="mx-6"
+      @click="backToContact()"
+    >
+      戻る
+    </v-btn>
+    <v-btn
+      class="mx-6"
+      @click="confirmContact()"
+    >
+      予約する
+    </v-btn>
   </div>
 </template>
 
