@@ -1,23 +1,56 @@
 <template>
   <div class="openlabReserveForm">
     <h1>オープンラボ訪問予約</h1>
-    <WelcomeUser/>
+    <WelcomeUser />
 
     <v-form ref="reserveVisitForm">
       <h2>2021年2月15日 {{ time }} で予約します。</h2>
 
-      <h2 v-show="error_message !== ''" class="my-3">{{ error_message }}</h2>
+      <h2
+        v-show="error_message !== ''"
+        class="my-3"
+      >
+        {{ error_message }}
+      </h2>
 
-      <v-text-field v-model="name" label="お名前" :rules="nameRules" required></v-text-field>
+      <v-text-field
+        v-model="name"
+        label="お名前"
+        :rules="nameRules"
+        required
+      />
 
-      <v-text-field v-model="studentId" label="学籍番号" :rules="studentIdRules" required></v-text-field>
+      <v-text-field
+        v-model="studentId"
+        label="学籍番号"
+        :rules="studentIdRules"
+        required
+      />
 
-      <v-text-field v-model="message" label="補足事項があれば記入してください"></v-text-field>
+      <v-text-field
+        v-model="message"
+        label="補足事項があれば記入してください"
+      />
 
-      <h2 v-show="error_message !== ''" class="my-3">{{ error_message }}</h2>
+      <h2
+        v-show="error_message !== ''"
+        class="my-3"
+      >
+        {{ error_message }}
+      </h2>
 
-      <v-btn class="mx-6" @click="backToReservation">戻る</v-btn>
-      <v-btn class="mx-6" @click="submitReservation">予約確認</v-btn>
+      <v-btn
+        class="mx-6"
+        @click="backToReservation"
+      >
+        戻る
+      </v-btn>
+      <v-btn
+        class="mx-6"
+        @click="submitReservation"
+      >
+        予約確認
+      </v-btn>
     </v-form>
   </div>
 </template>

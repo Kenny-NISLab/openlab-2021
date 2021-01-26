@@ -1,11 +1,14 @@
 <template>
   <div class="openlabReserveConfirm">
     <h1>問い合わせ完了</h1>
-    <WelcomeUser/>
+    <WelcomeUser />
     <h2>問い合わせが完了しました。</h2>
     <h3>後ほど、メールにてご回答させていただきます。</h3>
 
-    <v-row class="my-6" justify="center">
+    <v-row
+      class="my-6"
+      justify="center"
+    >
       <v-col cols="12">
         <v-simple-table>
           <template #default>

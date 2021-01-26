@@ -1,16 +1,38 @@
 <template>
   <div class="contactMe">
     <h1>問い合わせ</h1>
-    <WelcomeUser/>
+    <WelcomeUser />
 
     <v-form ref="contactForm">
-      <v-text-field v-model="contactForm.name" label="お名前" :rules="nameRules" required></v-text-field>
-      <v-text-field v-model="contactForm.studentId" label="学籍番号" :rules="studentIdRules" required></v-text-field>
-      <v-text-field v-model="contactForm.message" label="問い合わせ内容" :rules="messageRules" required></v-text-field>
+      <v-text-field
+        v-model="contactForm.name"
+        label="お名前"
+        :rules="nameRules"
+        required
+      />
+      <v-text-field
+        v-model="contactForm.studentId"
+        label="学籍番号"
+        :rules="studentIdRules"
+        required
+      />
+      <v-text-field
+        v-model="contactForm.message"
+        label="問い合わせ内容"
+        :rules="messageRules"
+        required
+      />
 
-      <h2 v-show="error_message !== ''" class="my-3">{{ error_message }}</h2>
+      <h2
+        v-show="error_message !== ''"
+        class="my-3"
+      >
+        {{ error_message }}
+      </h2>
 
-      <v-btn @click="sendContact()">問い合わせする</v-btn>
+      <v-btn @click="sendContact()">
+        問い合わせする
+      </v-btn>
     </v-form>
   </div>
 </template>

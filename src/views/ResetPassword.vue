@@ -3,9 +3,21 @@
     <h1>パスワード再設定</h1>
 
     <v-form ref="resetPasswordForm">
-      <v-text-field v-model="email" label="メールアドレス" :rules="emailRules" required></v-text-field>
-      <h2 v-show="error_message !== ''" class="my-3">{{ error_message }}</h2>
-      <v-btn @click="resetPasswordUser">再設定メールを送信する</v-btn>
+      <v-text-field
+        v-model="email"
+        label="メールアドレス"
+        :rules="emailRules"
+        required
+      />
+      <h2
+        v-show="error_message !== ''"
+        class="my-3"
+      >
+        {{ error_message }}
+      </h2>
+      <v-btn @click="resetPasswordUser">
+        再設定メールを送信する
+      </v-btn>
     </v-form>
   </div>
 </template>
