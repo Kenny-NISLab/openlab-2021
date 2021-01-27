@@ -218,8 +218,8 @@
 </template>
 
 <script>
-import firebase from '../firebase.js'
-import WelcomeUser from '../components/WelcomeUser.vue'
+import firebase from '@/firebase.js'
+import WelcomeUser from '@/components/WelcomeUser.vue'
 export default {
   name: 'Home',
   components: {

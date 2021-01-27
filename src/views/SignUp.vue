@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import firebase from '../firebase.js'
+import firebase from '@/firebase.js'
 export default {
   name: 'Signup',
   components: {
