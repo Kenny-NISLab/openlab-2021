@@ -152,6 +152,7 @@ export default {
 #app {
   width: 100%;
   font-family: 'Noto Sans JP', 'Roboto', sans-serif;
+  background-color: #fafafa;
 }
 
 #main {
