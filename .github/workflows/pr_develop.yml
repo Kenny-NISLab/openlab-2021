@@ -1,4 +1,4 @@
-name: Pull Request Develop
+name: Pull Request Develop Branch
 on:
   pull_request:
     branches: develop
