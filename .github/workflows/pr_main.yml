@@ -1,4 +1,4 @@
-name: PR Main
+name: Pull Request Main Branch
 on:
   pull_request:
     branches:
@@ -7,9 +7,14 @@ jobs:
   Notify_Slack:
     runs-on: ubuntu-latest
     steps:
-      - name: Slack Notification
-        uses: tokorom/action-slack-incoming-webhook@main
-        env:
-          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      - name: Notify Slack
+        uses: 8398a7/action-slack@v3.8.0
         with:
-          text: OpenLab サイトの Main Branch に PR されました！ Review しましょう！
+          status: ${{ job.status }}
+          author_name: mainブランチにPRされました。レビューをお願いします！！
+          fields: repo,message,commit,author
+          mention: "channel"
+          if_mention: always
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
