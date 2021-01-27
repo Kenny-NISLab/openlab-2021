@@ -38,10 +38,10 @@
 </template>
 
 <script>
-import firebase from '../firebase.js'
-import WelcomeUser from '../components/WelcomeUser.vue'
+import firebase from '@/firebase.js'
+import WelcomeUser from '@/components/WelcomeUser.vue'
 export default {
-  name: 'Contactme',
+  name: 'Contact',
   components: {
     WelcomeUser
   },

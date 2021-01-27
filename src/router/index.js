@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import firebase from '../firebase.js'
+import Home from '@/views/Home.vue'
+import firebase from '@/firebase.js'
 
 Vue.use(VueRouter)
 
@@ -9,7 +9,7 @@ const routes = [
   {
     path: '*',
     name: 'NotFound',
-    component: () => import('../views/NotFound.vue')
+    component: () => import('@/views/NotFound.vue')
   },
   {
     path: '/',
@@ -19,30 +19,30 @@ const routes = [
   {
     path: '/about',
     name: 'About',
-    component: () => import('../views/About.vue')
+    component: () => import('@/views/About.vue')
   },
   {
     path: '/contact',
-    name: 'ContactMe',
-    component: () => import('../views/ContactMe.vue'),
+    name: 'Contact',
+    component: () => import('@/views/Contact/Contact.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/contact/confirm',
-    name: 'ContactMeConfirm',
-    component: () => import('../views/ContactMeConfirm.vue'),
+    name: 'ContactConfirm',
+    component: () => import('@/views/Contact/ContactConfirm.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/contact/verification',
     name: 'ContactVerification',
-    component: () => import('../views/ContactVerification.vue'),
+    component: () => import('@/views/Contact/ContactVerification.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/signin',
     name: 'SignIn',
-    component: () => import('../views/SignIn.vue')
+    component: () => import('@/views/SignIn.vue')
   },
   {
     path: '/signout',
@@ -53,47 +53,47 @@ const routes = [
   {
     path: '/signup',
     name: 'SignUp',
-    component: () => import('../views/SignUp.vue')
+    component: () => import('@/views/SignUp.vue')
   },
   {
     path: '/resetpass',
     name: 'ResetPassword',
-    component: () => import('../views/ResetPassword.vue')
+    component: () => import('@/views/ResetPassword.vue')
   },
   {
     path: '/mypage',
     name: 'MyPage',
-    component: () => import('../views/MyPage.vue'),
+    component: () => import('@/views/MyPage.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve',
     name: 'OpenlabReserve',
-    component: () => import('../views/OpenlabReserve.vue'),
+    component: () => import('@/views/Openlab/OpenlabReserve.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/form',
     name: 'OpenlabReserveForm',
-    component: () => import('../views/OpenlabReserveForm.vue'),
+    component: () => import('@/views/Openlab/OpenlabReserve/OpenlabReserveForm.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/confirm',
     name: 'OpenlabReserveConfirm',
-    component: () => import('../views/OpenlabReserveConfirm.vue'),
+    component: () => import('@/views/Openlab/OpenlabReserve/OpenlabReserveConfirm.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/verification',
     name: 'OpenlabReserveVerification',
-    component: () => import('../views/OpenlabReserveVerification.vue'),
+    component: () => import('@/views/Openlab/OpenlabReserve/OpenlabReserveVerification.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/delete',
     name: 'OpenlabDelete',
-    component: () => import('../views/OpenlabDelete.vue'),
+    component: () => import('@/views/Openlab/OpenlabReserve/OpenlabDelete.vue'),
     meta: { requiresAuth: true }
   }
 ]
