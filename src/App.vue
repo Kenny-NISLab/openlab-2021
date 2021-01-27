@@ -12,23 +12,16 @@
 </template>
 
 <script>
-import store from '@/store'
 import Header from '@/components/Header.vue'
 import DrawerNav from '@/components/DrawerNav.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'App',
-  store,
   components: {
     Header,
     DrawerNav,
     Footer
-  },
-  data () {
-    return {
-      navDrawer: store.state.navDrawer
-    }
   }
 }
 </script>
