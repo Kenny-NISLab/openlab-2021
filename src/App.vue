@@ -80,8 +80,8 @@
 </template>
 
 <script>
-import firebase from './firebase.js'
-import Footer from './components/Footer.vue'
+import firebase from '@/firebase.js'
+import Footer from '@/components/Footer.vue'
 export default {
   name: 'App',
   components: {
