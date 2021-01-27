@@ -38,64 +38,31 @@
 
 <script>
 import firebase from '@/firebase.js'
-import store from '@/store'
+import storeDrawer from '@/store/drawer.js'
+import storeMenu from '@/store/menu.js'
 
 export default {
   name: 'DrawerNav',
   data () {
     return {
       uid: '',
-      menuLogined: [
-        {
-          name: 'HOME',
-          path: '/'
-        },
-        {
-          name: 'コンテンツ',
-          path: '/about'
-        },
-        {
-          name: 'オープンラボ訪問予約',
-          path: '/openlab/reserve'
-        },
-        {
-          name: 'マイページ',
-          path: '/mypage'
-        },
-        {
-          name: 'お問い合わせ',
-          path: '/contact'
-        },
-        {
-          name: 'ログアウト',
-          path: '/signout'
-        }
-      ],
-      menuLogouted: [
-        {
-          name: 'HOME',
-          path: '/'
-        },
-        {
-          name: 'コンテンツ',
-          path: '/about'
-        },
-        {
-          name: 'ログイン・新規登録',
-          path: '/signin'
-        }
-      ]
     }
   },
   computed: {
     navDrawer: {
       get() {
-        return store.state.navDrawer
+        return storeDrawer.state.navDrawer
       },
       set(val) {
-        store.commit('toggle', val)
+        storeDrawer.commit('toggle', val)
       },
     },
+    menuLogined() {
+      return storeMenu.state.menuLogined
+    },
+    menuLogouted() {
+      return storeMenu.state.menuLogouted
+    }
   },
   created () {
     firebase.auth().onAuthStateChanged((user) => {
