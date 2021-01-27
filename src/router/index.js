@@ -23,20 +23,20 @@ const routes = [
   },
   {
     path: '/contact',
-    name: 'ContactMe',
-    component: () => import('../views/ContactMe.vue'),
+    name: 'Contact',
+    component: () => import('../views/Contact/Contact.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/contact/confirm',
-    name: 'ContactMeConfirm',
-    component: () => import('../views/ContactMeConfirm.vue'),
+    name: 'ContactConfirm',
+    component: () => import('../views/Contact/ContactConfirm.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/contact/verification',
     name: 'ContactVerification',
-    component: () => import('../views/ContactVerification.vue'),
+    component: () => import('../views/Contact/ContactVerification.vue'),
     meta: { requiresAuth: true }
   },
   {
@@ -69,31 +69,31 @@ const routes = [
   {
     path: '/openlab/reserve',
     name: 'OpenlabReserve',
-    component: () => import('../views/OpenlabReserve.vue'),
+    component: () => import('../views/Openlab/OpenlabReserve.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/form',
     name: 'OpenlabReserveForm',
-    component: () => import('../views/OpenlabReserveForm.vue'),
+    component: () => import('../views/Openlab/OpenlabReserve/OpenlabReserveForm.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/confirm',
     name: 'OpenlabReserveConfirm',
-    component: () => import('../views/OpenlabReserveConfirm.vue'),
+    component: () => import('../views/Openlab/OpenlabReserve/OpenlabReserveConfirm.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/verification',
     name: 'OpenlabReserveVerification',
-    component: () => import('../views/OpenlabReserveVerification.vue'),
+    component: () => import('../views/Openlab/OpenlabReserve/OpenlabReserveVerification.vue'),
     meta: { requiresAuth: true }
   },
   {
     path: '/openlab/reserve/delete',
     name: 'OpenlabDelete',
-    component: () => import('../views/OpenlabDelete.vue'),
+    component: () => import('../views/Openlab/OpenlabReserve/OpenlabDelete.vue'),
     meta: { requiresAuth: true }
   }
 ]

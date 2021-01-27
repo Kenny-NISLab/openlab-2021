@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import WelcomeUser from '../components/WelcomeUser.vue'
+import WelcomeUser from '@/components/WelcomeUser.vue'
 export default {
   name: 'ContactVerification',
   components: {
