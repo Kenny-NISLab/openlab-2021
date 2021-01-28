@@ -12,4 +12,4 @@ jobs:
         env:
           INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
-          text: "@channel openlab リポジトリの develop ブランチにマージされました。develop ブランチを pull してください。コマンドは git pull origin develop です。"
+          text: "@channel develop ブランチにマージされました。develop ブランチを pull してください。コマンドは git pull origin develop です。"
