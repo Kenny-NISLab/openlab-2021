@@ -92,9 +92,9 @@
         cols="12"
         md="6"
       >
-        <v-card width="100%">
+        <v-card>
           <v-card-title><b>オンライン開催</b></v-card-title>
-          <v-card-subtitle>zoomにて開催しますので、どなたでも気軽に参加いただけます。</v-card-subtitle>
+          <v-card-subtitle>zoomを利用して開催します。<br>どなたでも気軽に参加いただけます。</v-card-subtitle>
           <v-divider class="mx-3" />
           <v-card-title>プログラム</v-card-title>
           <v-card-subtitle>研究室紹介や例年よく出る質問などを紹介し、参加してくださるみなさんの質問等にもお答えします。<br>希望者には、ブレイクアウトルームを用いた相談会なども開催予定です。</v-card-subtitle>
@@ -178,7 +178,7 @@
         cols="12"
         md="6"
       >
-        <v-card width="100%">
+        <v-card height="100%">
           <v-card-title><b>オフライン開催</b></v-card-title>
           <v-card-subtitle>研究室に直接訪問し、雰囲気等を味わっていただけます。<br>感染対策を十分に行った上で実施します。</v-card-subtitle>
           <v-divider class="mx-3" />
