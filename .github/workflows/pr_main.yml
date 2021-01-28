@@ -7,14 +7,9 @@ jobs:
   Notify_Slack:
     runs-on: ubuntu-latest
     steps:
-      - name: Notify Slack
-        uses: 8398a7/action-slack@v3.8.0
-        with:
-          status: ${{ job.status }}
-          author_name: mainブランチにPRされました。レビューをお願いします！！
-          fields: repo,message,commit,author
-          mention: "channel"
-          if_mention: always
+      - name: Slack Notification
+        uses: tokorom/action-slack-incoming-webhook@main
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        with:
+          text: "@channel main ブランチに PR されました。レビューをお願いします！！"
