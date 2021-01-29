@@ -14,7 +14,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import DrawerNav from '@/components/DrawerNav.vue'
-import Footer from '@/components/Footer.vue'
+import Footer from '@/components/Footer/Footer.vue'
 
 export default {
   name: 'App',
