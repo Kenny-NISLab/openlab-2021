@@ -1,6 +1,8 @@
 <template>
   <div class="signup">
-    <h1>アカウント作成</h1>
+    <h1 class="heading--main">
+      アカウント作成
+    </h1>
 
     <v-form ref="createAccountForm">
       <v-text-field
@@ -23,12 +25,12 @@
         :rules="confirm_passwordRules"
         required
       />
-      <h2
+      <p
         v-show="error_message !== ''"
-        class="my-3"
+        class="heading--sub my-3"
       >
         {{ error_message }}
-      </h2>
+      </p>
       <v-btn @click="createUserAccount">
         アカウントを作成する
       </v-btn>

@@ -1,7 +1,11 @@
 <template>
   <div class="about">
-    <h1>コンテンツ</h1>
-    <h2>ここでは、皆様の役に立つかもしれない情報を発信します。</h2>
+    <h1 class="heading--main">
+      コンテンツ
+    </h1>
+    <h2 class="heading--sub">
+      ここでは、皆様の役に立つかもしれない情報を発信します。
+    </h2>
 
     <v-alert
       outlined
@@ -49,8 +53,12 @@
       </v-col>
     </v-row>
 
-    <h1>よくある質問に答えます！</h1>
-    <h3>質問箱でいただいた質問や例年よくいただく質問に対して、佐藤研究室の学生が回答します！<br>オープンラボではよりぶっちゃけた話をさせていただきます！</h3>
+    <h1 class="heading--main">
+      よくある質問に答えます！
+    </h1>
+    <h2 class="heading--accent">
+      質問箱でいただいた質問や例年よくいただく質問に対して、佐藤研究室の学生が回答します！<br>オープンラボではよりぶっちゃけた話をさせていただきます！
+    </h2>
     <v-row class="my-4">
       <v-col>
         <v-expansion-panels accordion>
@@ -65,7 +73,9 @@
       </v-col>
     </v-row>
 
-    <h1>写真を一部公開！</h1>
+    <h1 class="heading--main">
+      写真を一部公開！
+    </h1>
     <v-row>
       <v-col
         v-for="image in images"

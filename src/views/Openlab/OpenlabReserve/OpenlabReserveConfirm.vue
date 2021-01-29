@@ -1,6 +1,8 @@
 <template>
   <div class="openlabReserveConfirm">
-    <h1>以下の日時・情報で予約しますか？</h1>
+    <h1 class="heading--main">
+      以下の日時・情報で予約しますか？
+    </h1>
     <v-alert
       dense
       outlined

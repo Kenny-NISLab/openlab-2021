@@ -1,6 +1,8 @@
 <template>
   <div class="signin">
-    <h1>ログイン</h1>
+    <h1 class="heading--main">
+      ログイン
+    </h1>
 
     <v-form>
       <v-text-field

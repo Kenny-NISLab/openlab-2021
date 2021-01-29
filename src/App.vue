@@ -14,7 +14,7 @@
 <script>
 import Header from '@/components/Header.vue'
 import DrawerNav from '@/components/DrawerNav.vue'
-import Footer from '@/components/Footer.vue'
+import Footer from '@/components/Footer/Footer.vue'
 
 export default {
   name: 'App',
@@ -42,24 +42,36 @@ export default {
 }
 </style>
 
-<style>
-h1 {
-  position: relative;
-  padding: 0.3em 0.5em;
-  margin: 0.8em 0;
-  border-left: solid 6px #3fc1c9;
-}
+<style lang="scss">
+.heading {
+  font-weight: bold;
 
-h2 {
-  padding: 0.5em 0.8em;
-  margin: 0.8em 0;
-  color: #364f6b;
-  background-color: #f5f5f5;
-  border-radius: 6px;
-}
+  &--main {
+    position: relative;
+    padding: 0.25em 0.5em;
+    margin: 0.75em 0;
+    font-size: 2rem;
+    border-left: solid 6px #3fc1c9;
+  }
 
-h3 {
-  padding: 0.3em;
-  border-bottom: solid 2px #364f6b;
+  &--sub {
+    padding: 0.5em 1em;
+    margin: 0.75em 0;
+    font-size: 1.5rem;
+    color: #364f6b;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+  }
+
+  &--accent {
+    padding: 0.25em;
+    font-size: 1.25rem;
+    border-bottom: solid 2px #364f6b;
+  }
+
+  &--min {
+    margin: 0.5rem;
+    font-size: 1rem;
+  }
 }
 </style>
