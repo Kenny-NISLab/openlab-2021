@@ -1,6 +1,8 @@
 <template>
   <div class="contactMe">
-    <h1>問い合わせ</h1>
+    <h1 class="heading--main">
+      問い合わせ
+    </h1>
     <WelcomeUser />
 
     <v-form ref="contactForm">
@@ -23,12 +25,12 @@
         required
       />
 
-      <h2
+      <p
         v-show="error_message !== ''"
-        class="my-3"
+        class="heading--sub my-3"
       >
         {{ error_message }}
-      </h2>
+      </p>
 
       <v-btn @click="sendContact()">
         問い合わせする

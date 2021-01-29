@@ -1,6 +1,8 @@
 <template>
   <div class="resetPassword">
-    <h1>パスワード再設定</h1>
+    <h1 class="heading--main">
+      パスワード再設定
+    </h1>
 
     <v-form ref="resetPasswordForm">
       <v-text-field
@@ -9,12 +11,12 @@
         :rules="emailRules"
         required
       />
-      <h2
+      <p
         v-show="error_message !== ''"
-        class="my-3"
+        class="heading--sub my-3"
       >
         {{ error_message }}
-      </h2>
+      </p>
       <v-btn @click="resetPasswordUser">
         再設定メールを送信する
       </v-btn>

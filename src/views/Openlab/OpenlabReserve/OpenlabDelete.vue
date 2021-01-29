@@ -1,6 +1,8 @@
 <template>
   <div class="confirmOpenlabDelete">
-    <h1>以下の予約をキャンセルしますか？</h1>
+    <h1 class="heading--main">
+      以下の予約をキャンセルしますか？
+    </h1>
 
     <v-row
       class="my-6"

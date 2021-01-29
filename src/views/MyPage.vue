@@ -1,15 +1,19 @@
 <template>
   <div class="mypage">
-    <h1>マイページ</h1>
+    <h1 class="heading--main">
+      マイページ
+    </h1>
     <WelcomeUser />
 
     <h2
       v-show="titleMessage"
-      class="my-6"
+      class="heading--sub my-6"
     >
       {{ titleMessage }}
     </h2>
-    <h3>予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。</h3>
+    <p class="heading--accent">
+      予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。
+    </p>
 
     <v-row
       v-for="openlabReservation in myOpenlabReservation"
