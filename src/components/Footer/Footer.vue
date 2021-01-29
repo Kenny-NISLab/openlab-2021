@@ -1,9 +1,9 @@
 <template>
   <v-footer
     color="primary"
-    class="text-center"
+    class="text-center pb-0"
   >
-    <v-container>
+    <v-container class="pb-0">
       <v-row
         justify="center"
         no-gutters
