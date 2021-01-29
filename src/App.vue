@@ -44,6 +44,8 @@ export default {
 
 <style lang="scss">
 .heading {
+  font-weight: bold;
+
   &--main {
     position: relative;
     padding: 0.25em 0.5em;
@@ -61,10 +63,15 @@ export default {
     border-radius: 6px;
   }
 
-  &--third {
+  &--accent {
     padding: 0.25em;
     font-size: 1.25rem;
     border-bottom: solid 2px #364f6b;
+  }
+
+  &--min {
+    margin: 0.5rem;
+    font-size: 1rem;
   }
 }
 </style>
