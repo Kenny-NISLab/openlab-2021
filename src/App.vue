@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import Header from '@/components/Header.vue'
-import DrawerNav from '@/components/DrawerNav.vue'
+import Header from '@/components/Header/Header.vue'
+import DrawerNav from '@/components/Header/DrawerNav.vue'
 import Footer from '@/components/Footer/Footer.vue'
 
 export default {
@@ -43,8 +43,25 @@ export default {
 </style>
 
 <style lang="scss">
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
 .heading {
-  font-weight: bold;
+  &--main,
+  &--sub,
+  &--accent,
+  &--min {
+    font-weight: bold;
+  }
 
   &--main {
     position: relative;
