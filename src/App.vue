@@ -43,8 +43,25 @@ export default {
 </style>
 
 <style lang="scss">
+h1,
+h2,
+h3,
+h4 {
+  font-size: inherit;
+  font-weight: normal;
+}
+
+a {
+  text-decoration: none;
+}
+
 .heading {
-  font-weight: bold;
+  &--main,
+  &--sub,
+  &--accent,
+  &--min {
+    font-weight: bold;
+  }
 
   &--main {
     position: relative;
