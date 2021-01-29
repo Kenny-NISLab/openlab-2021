@@ -5,13 +5,18 @@
   >
     <v-app-bar-nav-icon @click="toggle" />
     <v-toolbar-title>
-      <a
-        href="/"
-        style="text-decoration: none;"
-      >NISLAB OpenLAB</a>
+      <h1 lang:en>
+        <router-link to="/">
+          NISLAB OpenLAB
+        </router-link>
+      </h1>
     </v-toolbar-title>
 
-    <v-tabs v-show="uid">
+    <v-tabs
+      v-if="uid"
+      role="navigation"
+      aria-label="ログイン時グローバルナビ"
+    >
       <v-tab
         v-for="menuItem in menuLogined"
         :key="menuItem.name"
@@ -21,7 +26,11 @@
       </v-tab>
     </v-tabs>
 
-    <v-tabs v-show="!uid">
+    <v-tabs
+      v-else
+      role="navigation"
+      aria-label="未ログイン時グローバルナビ"
+    >
       <v-tab
         v-for="menuItem in menuLogouted"
         :key="menuItem.name"
@@ -78,8 +87,8 @@ export default {
 
 <style scoped>
 .v-toolbar__title {
-  margin-right: 50px !important;
-  overflow: visible !important;
+  margin-right: 50px;
+  overflow: visible;
 }
 
 @media screen and (max-width: 1024px) {
