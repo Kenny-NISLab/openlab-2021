@@ -21,7 +21,7 @@
           cols="12"
           sm="6"
         >
-          <v-card>
+          <v-card height="100%">
             <a
               href="https://twitter.com/nislab_sato"
               target="_blank"
@@ -77,7 +77,10 @@
       </v-row>
     </section>
 
-    <section aria-label="写真ギャラリー">
+    <section
+      aria-label="写真ギャラリー"
+      class="mb-16"
+    >
       <h1 class="heading--main">
         写真を一部公開！
       </h1>
