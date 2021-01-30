@@ -91,4 +91,10 @@ a {
     font-size: 1rem;
   }
 }
+
+.text {
+  &--bold {
+    font-weight: bold;
+  }
+}
 </style>
