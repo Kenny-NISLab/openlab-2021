@@ -1,96 +1,102 @@
 <template>
-  <div class="about">
-    <h1 class="heading--main">
-      コンテンツ
-    </h1>
-    <h2 class="heading--sub">
-      ここでは、皆様の役に立つかもしれない情報を発信します。
-    </h2>
+  <article aria-label="コンテンツページ">
+    <section aria-label="研究室に関連するコンテンツへのリンクなど">
+      <h1 class="heading--main">
+        コンテンツ
+      </h1>
+      <h2 class="heading--sub">
+        ここでは、皆様の役に立つかもしれない情報を発信します。
+      </h2>
 
-    <v-alert
-      outlined
-      type="warning"
-      border="left"
-    >
-      コンテンツは随時更新する予定ですが、ぶっちゃけた話はオープンラボ当日にお話しできるかと思います！<br>みなさんの研究室選びのお役に立てるよう情報発信します！
-    </v-alert>
-
-    <v-row class="my-4">
-      <v-col
-        cols="12"
-        sm="6"
+      <v-alert
+        outlined
+        type="warning"
+        border="left"
       >
-        <v-card>
-          <a
-            href="https://twitter.com/nislab_sato"
-            target="_blank"
-          >
-            <v-img src="/sns/twitter01.png" />
-          </a>
-          <v-card-title>
-            Twitter (<a
+        コンテンツは随時更新する予定ですが、ぶっちゃけた話はオープンラボ当日にお話しできるかと思います！<br>みなさんの研究室選びのお役に立てるよう情報発信します！
+      </v-alert>
+
+      <v-row class="my-4">
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-card>
+            <a
               href="https://twitter.com/nislab_sato"
               target="_blank"
-            >@nislab_sato</a>) やってます！
-          </v-card-title>
-          <v-card-subtitle>研究室の情報発信を中心に、質問箱でいただいた質問にもお答えしています！</v-card-subtitle>
-        </v-card>
-      </v-col>
-      <v-col
-        cols="12"
-        sm="6"
-      >
-        <v-card>
-          <a
-            href="https://nislab.doshisha.ac.jp"
-            target="_blank"
-          >
-            <v-img src="/sns/website01.png" />
-          </a>
-          <v-card-title>研究室サイト運営してます！</v-card-title>
-          <v-card-subtitle>研究発表についての報告などもしています。<br>近日、リニューアル予定！</v-card-subtitle>
-        </v-card>
-      </v-col>
-    </v-row>
+            >
+              <v-img src="/sns/twitter01.png" />
+            </a>
+            <v-card-title>
+              Twitter (<a
+                href="https://twitter.com/nislab_sato"
+                target="_blank"
+              >@nislab_sato</a>) やってます！
+            </v-card-title>
+            <v-card-subtitle>研究室の情報発信を中心に、質問箱でいただいた質問にもお答えしています！</v-card-subtitle>
+          </v-card>
+        </v-col>
+        <v-col
+          cols="12"
+          sm="6"
+        >
+          <v-card>
+            <a
+              href="https://nislab.doshisha.ac.jp"
+              target="_blank"
+            >
+              <v-img src="/sns/website01.png" />
+            </a>
+            <v-card-title>研究室サイト運営してます！</v-card-title>
+            <v-card-subtitle>研究発表についての報告などもしています。<br>近日、リニューアル予定！</v-card-subtitle>
+          </v-card>
+        </v-col>
+      </v-row>
+    </section>
 
-    <h1 class="heading--main">
-      よくある質問に答えます！
-    </h1>
-    <h2 class="heading--accent">
-      質問箱でいただいた質問や例年よくいただく質問に対して、佐藤研究室の学生が回答します！<br>オープンラボではよりぶっちゃけた話をさせていただきます！
-    </h2>
-    <v-row class="my-4">
-      <v-col>
-        <v-expansion-panels accordion>
-          <v-expansion-panel
-            v-for="(item, i) in questions"
-            :key="i"
-          >
-            <v-expansion-panel-header>{{ item.q }}</v-expansion-panel-header>
-            <v-expansion-panel-content>{{ item.ans }}</v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
-      </v-col>
-    </v-row>
+    <section aria-label="よくある質問とそれに対する回答一覧">
+      <h1 class="heading--main">
+        よくある質問に答えます！
+      </h1>
+      <h2 class="heading--accent">
+        質問箱でいただいた質問や例年よくいただく質問に対して、佐藤研究室の学生が回答します！<br>オープンラボではよりぶっちゃけた話をさせていただきます！
+      </h2>
+      <v-row class="my-4">
+        <v-col>
+          <v-expansion-panels accordion>
+            <v-expansion-panel
+              v-for="(item, i) in questions"
+              :key="i"
+            >
+              <v-expansion-panel-header>{{ item.q }}</v-expansion-panel-header>
+              <v-expansion-panel-content>{{ item.ans }}</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-col>
+      </v-row>
+    </section>
 
-    <h1 class="heading--main">
-      写真を一部公開！
-    </h1>
-    <v-row>
-      <v-col
-        v-for="image in images"
-        :key="image"
-        class="d-flex child-flex"
-        md="3"
-        sm="4"
-        cols="6"
-      >
-        <v-card>
-          <v-img :src="image" />
-        </v-card>
-      </v-col>
-    </v-row>
-  </div>
+    <section aria-label="写真ギャラリー">
+      <h1 class="heading--main">
+        写真を一部公開！
+      </h1>
+      <v-row>
+        <v-col
+          v-for="image in images"
+          :key="image"
+          class="d-flex child-flex"
+          md="3"
+          sm="4"
+          cols="6"
+        >
+          <v-card>
+            <v-img :src="image" />
+          </v-card>
+        </v-col>
+      </v-row>
+    </section>
+  </article>
 </template>
 
 <script>
