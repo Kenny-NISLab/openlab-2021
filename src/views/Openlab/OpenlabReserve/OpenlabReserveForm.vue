@@ -1,17 +1,21 @@
 <template>
   <div class="openlabReserveForm">
-    <h1>オープンラボ訪問予約</h1>
+    <h1 class="heading--main">
+      オープンラボ訪問予約
+    </h1>
     <WelcomeUser />
 
     <v-form ref="reserveVisitForm">
-      <h2>2021年2月15日 {{ time }} で予約します。</h2>
+      <h2 class="heading--sub">
+        2021年2月15日 {{ time }} で予約します。
+      </h2>
 
-      <h2
+      <p
         v-show="error_message !== ''"
-        class="my-3"
+        class="heading--sub my-3"
       >
         {{ error_message }}
-      </h2>
+      </p>
 
       <v-text-field
         v-model="name"
@@ -32,12 +36,12 @@
         label="補足事項があれば記入してください"
       />
 
-      <h2
+      <p
         v-show="error_message !== ''"
-        class="my-3"
+        class="heading--sub my-3"
       >
         {{ error_message }}
-      </h2>
+      </p>
 
       <v-btn
         class="mx-6"

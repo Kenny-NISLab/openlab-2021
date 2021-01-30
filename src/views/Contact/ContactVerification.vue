@@ -1,9 +1,15 @@
 <template>
   <div class="openlabReserveConfirm">
-    <h1>問い合わせ完了</h1>
+    <h1 class="heading--main">
+      問い合わせ完了
+    </h1>
     <WelcomeUser />
-    <h2>問い合わせが完了しました。</h2>
-    <h3>後ほど、メールにてご回答させていただきます。</h3>
+    <h2 class="heading--sub">
+      問い合わせが完了しました。
+    </h2>
+    <p class="heading--accent">
+      後ほど、メールにてご回答させていただきます。
+    </p>
 
     <v-row
       class="my-6"

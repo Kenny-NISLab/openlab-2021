@@ -1,17 +1,25 @@
 <template>
   <div class="openlabReserve">
-    <h1>オープンラボ訪問予約</h1>
+    <h1 class="heading--main">
+      オープンラボ訪問予約
+    </h1>
     <WelcomeUser />
 
-    <h2>2021年2月15日にオープンラボを開催します。</h2>
-    <h2>オフラインでの訪問を希望される方は希望の時間を選択してください。</h2>
-    <h3>2日前（2月13日）までこちらから予約できます。</h3>
-    <h2
+    <h2 class="heading--sub">
+      2021年2月15日にオープンラボを開催します。
+    </h2>
+    <p class="heading--sub">
+      オフラインでの訪問を希望される方は希望の時間を選択してください。
+    </p>
+    <p class="heading--accent">
+      2日前（2月13日）までこちらから予約できます。
+    </p>
+    <p
       v-show="error_message"
-      class="accent--text"
+      class="heading--sub accent--text"
     >
       {{ error_message }}
-    </h2>
+    </p>
 
     <v-simple-table class="my-6">
       <template #default>

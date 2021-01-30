@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <h1>2021年2月15日(月) NISLAB オープンラボ 開催！</h1>
+    <h1 class="heading--main">
+      2021年2月15日(月) NISLAB オープンラボ 開催！
+    </h1>
     <WelcomeUser />
 
     <v-row class="my-6">
@@ -54,7 +56,9 @@
       </v-col>
     </v-row>
 
-    <h1>タイムスケジュール</h1>
+    <h1 class="heading--main">
+      タイムスケジュール
+    </h1>
     <v-row justify="center">
       <v-col
         cols="12"
@@ -80,11 +84,15 @@
       </v-col>
     </v-row>
 
-    <h1>オープンラボ要領</h1>
-    <h3>今年度のオープンラボはオンライン/オフラインのハイブリッド開催をします</h3>
-    <h4 class="mx-2 my-2">
+    <h1 class="heading--main">
+      オープンラボ要領
+    </h1>
+    <h2 class="heading--accent">
+      今年度のオープンラボはオンライン/オフラインのハイブリッド開催をします
+    </h2>
+    <p class="heading--min mx-2 my-2">
       それぞれ時間が異なりますので、両方参加していただくことも可能です。<br>3年生だけでなく、1/2年生も大歓迎ですので是非ご参加ください！
-    </h4>
+    </p>
 
     <v-row class="my-6">
       <!-- オンライン開催 -->

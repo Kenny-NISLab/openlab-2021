@@ -1,6 +1,8 @@
 <template>
   <div class="openlabReserveConfirm">
-    <h1>以下の内容で問い合わせしますか？</h1>
+    <h1 class="heading--main">
+      以下の内容で問い合わせしますか？
+    </h1>
     <v-alert
       dense
       outlined
