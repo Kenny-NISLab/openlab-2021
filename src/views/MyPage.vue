@@ -1,70 +1,72 @@
 <template>
-  <div class="mypage">
-    <h1 class="heading--main">
-      マイページ
-    </h1>
-    <WelcomeUser />
+  <article aria-label="マイページ">
+    <section aria-label="予約の確認・キャンセルが可能">
+      <h1 class="heading--main">
+        マイページ
+      </h1>
+      <WelcomeUser />
 
-    <h2
-      v-show="titleMessage"
-      class="heading--sub my-6"
-    >
-      {{ titleMessage }}
-    </h2>
-    <p class="heading--accent">
-      予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。
-    </p>
+      <h2
+        v-show="titleMessage"
+        class="heading--sub my-6"
+      >
+        {{ titleMessage }}
+      </h2>
+      <p class="heading--accent">
+        予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。
+      </p>
 
-    <v-row
-      v-for="openlabReservation in myOpenlabReservation"
-      :key="openlabReservation.id"
-      class="my-6"
-      justify="center"
-    >
-      <v-col cols="12">
-        <v-simple-table>
-          <template #default>
-            <tbody>
-              <tr>
-                <td>お名前</td>
-                <td>{{ openlabReservation.name }}</td>
-              </tr>
-              <tr>
-                <td>学籍番号</td>
-                <td>{{ openlabReservation.studentId }}</td>
-              </tr>
-              <tr>
-                <td>メールアドレス</td>
-                <td>{{ openlabReservation.email }}</td>
-              </tr>
-              <tr>
-                <td>予約日</td>
-                <td>{{ openlabReservation.date }}</td>
-              </tr>
-              <tr>
-                <td>予約時間</td>
-                <td>{{ openlabReservation.time }}</td>
-              </tr>
-              <tr>
-                <td>補足事項</td>
-                <td>{{ openlabReservation.message }}</td>
-              </tr>
-              <tr>
-                <td colspan="2">
-                  <v-btn
-                    v-show="isThreeDaysBefore(openlabReservation.date)"
-                    @click="deleteOpenlabReservation(openlabReservation)"
-                  >
-                    この予約をキャンセルする
-                  </v-btn>
-                </td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </v-col>
-    </v-row>
-  </div>
+      <v-row
+        v-for="openlabReservation in myOpenlabReservation"
+        :key="openlabReservation.id"
+        class="my-6"
+        justify="center"
+      >
+        <v-col cols="12">
+          <v-simple-table>
+            <template #default>
+              <tbody>
+                <tr>
+                  <td>お名前</td>
+                  <td>{{ openlabReservation.name }}</td>
+                </tr>
+                <tr>
+                  <td>学籍番号</td>
+                  <td>{{ openlabReservation.studentId }}</td>
+                </tr>
+                <tr>
+                  <td>メールアドレス</td>
+                  <td>{{ openlabReservation.email }}</td>
+                </tr>
+                <tr>
+                  <td>予約日</td>
+                  <td>{{ openlabReservation.date }}</td>
+                </tr>
+                <tr>
+                  <td>予約時間</td>
+                  <td>{{ openlabReservation.time }}</td>
+                </tr>
+                <tr>
+                  <td>補足事項</td>
+                  <td>{{ openlabReservation.message }}</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <v-btn
+                      v-show="isThreeDaysBefore(openlabReservation.date)"
+                      @click="deleteOpenlabReservation(openlabReservation)"
+                    >
+                      この予約をキャンセルする
+                    </v-btn>
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </v-simple-table>
+        </v-col>
+      </v-row>
+    </section>
+  </article>
 </template>
 
 <script>
@@ -120,13 +122,11 @@ export default {
       const year1 = day1.getFullYear()
       const month1 = day1.getMonth()
       const date1 = day1.getDate()
-      // console.log(year1, month1, date1);
 
       const day2 = new Date()
       const year2 = day2.getFullYear()
       const month2 = day2.getMonth() + 1
       const date2 = day2.getDate() + 2
-      // console.log(year2, month2, date2);
 
       if (year1 === year2) {
         if (month1 === month2) {
