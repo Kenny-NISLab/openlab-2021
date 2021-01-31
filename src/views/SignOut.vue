@@ -1,18 +1,19 @@
 <template>
-  <div class="signout">
+  <article aria-label="サインアウトページ">
     <h1 class="heading--main">
       ログアウト
     </h1>
     <v-btn @click="singout">
       ログアウト
     </v-btn>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
+
 export default {
-  name: 'Signout',
+  name: 'SignOut',
   components: {
   },
   methods: {

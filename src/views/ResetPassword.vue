@@ -1,5 +1,5 @@
 <template>
-  <div class="resetPassword">
+  <article aria-label="パスワード再設定ページ">
     <h1 class="heading--main">
       パスワード再設定
     </h1>
@@ -21,7 +21,7 @@
         再設定メールを送信する
       </v-btn>
     </v-form>
-  </div>
+  </article>
 </template>
 
 <script>

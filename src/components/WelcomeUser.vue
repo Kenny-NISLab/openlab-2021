@@ -1,14 +1,17 @@
 <template>
-  <h4 v-show="useremail">
+  <p
+    v-show="useremail"
+    class="header--min aling-right"
+  >
     ようこそ {{ useremail }} さん
-  </h4>
+  </p>
 </template>
 
 <script>
 import firebase from '../firebase.js'
 
 export default {
-  name: 'Welcomeuser',
+  name: 'WelcomeUser',
   data () {
     return {
       useremail: null
@@ -27,7 +30,7 @@ export default {
 </script>
 
 <style scoped>
-h4 {
+.aling-right {
   text-align: right;
 }
 </style>
