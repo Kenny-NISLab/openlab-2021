@@ -1,5 +1,5 @@
 <template>
-  <div class="contactMe">
+  <article aria-label="問い合わせページ">
     <h1 class="heading--main">
       問い合わせ
     </h1>
@@ -36,12 +36,13 @@
         問い合わせする
       </v-btn>
     </v-form>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
 import WelcomeUser from '@/components/WelcomeUser.vue'
+
 export default {
   name: 'Contact',
   components: {
