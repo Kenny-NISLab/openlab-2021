@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <article aria-label="アカウント作成ページ">
     <h1 class="heading--main">
       アカウント作成
     </h1>
@@ -35,13 +35,14 @@
         アカウントを作成する
       </v-btn>
     </v-form>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
+
 export default {
-  name: 'Signup',
+  name: 'SignUp',
   components: {
   },
   data () {
