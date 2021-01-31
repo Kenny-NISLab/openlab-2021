@@ -1,5 +1,5 @@
 <template>
-  <div class="openlabReserveForm">
+  <article aria-label="予約情報入力ページ">
     <h1 class="heading--main">
       オープンラボ訪問予約
     </h1>
@@ -7,7 +7,7 @@
 
     <v-form ref="reserveVisitForm">
       <h2 class="heading--sub">
-        2021年2月15日 {{ time }} で予約します。
+        <time datetime="2021-02-15">2021年2月15日</time> {{ time }} で予約します。
       </h2>
 
       <p
@@ -56,7 +56,7 @@
         予約確認
       </v-btn>
     </v-form>
-  </div>
+  </article>
 </template>
 
 <script>

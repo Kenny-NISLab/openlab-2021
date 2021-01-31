@@ -1,5 +1,5 @@
 <template>
-  <div class="openlabReserveConfirm">
+  <article aria-label="予約確認ページ">
     <h1 class="heading--main">
       以下の日時・情報で予約しますか？
     </h1>
@@ -11,43 +11,7 @@
       まだ予約は完了していません。
     </v-alert>
 
-    <v-row
-      class="my-6"
-      justify="center"
-    >
-      <v-col cols="12">
-        <v-simple-table>
-          <template #default>
-            <tbody>
-              <tr>
-                <td>お名前</td>
-                <td>{{ reserveForm.name }}</td>
-              </tr>
-              <tr>
-                <td>学籍番号</td>
-                <td>{{ reserveForm.studentId }}</td>
-              </tr>
-              <tr>
-                <td>メールアドレス</td>
-                <td>{{ reserveForm.email }}</td>
-              </tr>
-              <tr>
-                <td>予約日</td>
-                <td>{{ reserveForm.date }}</td>
-              </tr>
-              <tr>
-                <td>予約時間</td>
-                <td>{{ reserveForm.time }}</td>
-              </tr>
-              <tr>
-                <td>補足事項</td>
-                <td>{{ reserveForm.message }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </v-col>
-    </v-row>
+    <ReserveTable :reserve-form="reserveForm" />
 
     <v-btn
       class="mx-6"
@@ -61,15 +25,17 @@
     >
       予約する
     </v-btn>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
+import ReserveTable from '@/components/ReserveTable.vue'
 
 export default {
   name: 'ConfirmReserve',
   components: {
+    ReserveTable
   },
   data () {
     return {
