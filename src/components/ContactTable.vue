@@ -32,12 +32,12 @@
 
 <script>
 export default {
-  name: 'ConfirmContact',
+  name: 'ContactTable',
   props:{
     contactForm: {
-     type: String,
-     required: true
-  }
+      type: Object,
+      required: true
+    }
   }
 }
 </script>
