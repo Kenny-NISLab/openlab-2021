@@ -1,5 +1,5 @@
 <template>
-  <div class="notFound">
+  <article aria-label="ページが見つかりません">
     <h1 class="heading--main">
       Sorry, Not Found.
     </h1>
@@ -8,7 +8,7 @@
         ホームに戻る
       </router-link>
     </h2>
-  </div>
+  </article>
 </template>
 
 <script>

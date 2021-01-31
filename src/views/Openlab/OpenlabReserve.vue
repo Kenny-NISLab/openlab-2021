@@ -1,5 +1,5 @@
 <template>
-  <div class="openlabReserve">
+  <article aria-label="訪問予約ページ">
     <h1 class="heading--main">
       オープンラボ訪問予約
     </h1>
@@ -49,7 +49,7 @@
         </tbody>
       </template>
     </v-simple-table>
-  </div>
+  </article>
 </template>
 
 <script>

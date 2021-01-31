@@ -65,10 +65,10 @@ a {
 
   &--main {
     position: relative;
-    padding: 0.25em 0.5em;
-    margin: 0.75em 0;
+    padding: 0 0.5em;
+    margin: 1em 0;
     font-size: 2rem;
-    border-left: solid 6px #3fc1c9;
+    border-left: solid 6px #364f6b;
   }
 
   &--sub {
@@ -89,6 +89,12 @@ a {
   &--min {
     margin: 0.5rem;
     font-size: 1rem;
+  }
+}
+
+.text {
+  &--bold {
+    font-weight: bold;
   }
 }
 </style>

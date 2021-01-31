@@ -1,5 +1,5 @@
 <template>
-  <div class="openlabReserveConfirm">
+  <article aria-label="問い合わせ内容確認ページ">
     <h1 class="heading--main">
       以下の内容で問い合わせしますか？
     </h1>
@@ -11,35 +11,7 @@
       まだ問い合わせは完了していません。
     </v-alert>
 
-    <v-row
-      class="my-6"
-      justify="center"
-    >
-      <v-col cols="12">
-        <v-simple-table>
-          <template #default>
-            <tbody>
-              <tr>
-                <td>お名前</td>
-                <td>{{ contactForm.name }}</td>
-              </tr>
-              <tr>
-                <td>学籍番号</td>
-                <td>{{ contactForm.studentId }}</td>
-              </tr>
-              <tr>
-                <td>メールアドレス</td>
-                <td>{{ contactForm.email }}</td>
-              </tr>
-              <tr>
-                <td>問い合わせ内容</td>
-                <td>{{ contactForm.message }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </v-col>
-    </v-row>
+    <ContactTable :contact-form="contactForm" />
 
     <v-btn
       class="mx-6"
@@ -53,14 +25,17 @@
     >
       予約する
     </v-btn>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
+import ContactTable from '@/components/ContactTable.vue'
+
 export default {
   name: 'ConfirmContact',
   components: {
+    ContactTable
   },
   data () {
     return {

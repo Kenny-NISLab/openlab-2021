@@ -1,5 +1,5 @@
 <template>
-  <div class="signin">
+  <article aria-label="サインインページ">
     <h1 class="heading--main">
       ログイン
     </h1>
@@ -38,13 +38,14 @@
         </router-link>
       </p>
     </v-row>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
+
 export default {
-  name: 'Signin',
+  name: 'SignIn',
   components: {
   },
   data () {

@@ -1,46 +1,10 @@
 <template>
-  <div class="confirmOpenlabDelete">
+  <article aria-label="予約キャンセルページ">
     <h1 class="heading--main">
       以下の予約をキャンセルしますか？
     </h1>
 
-    <v-row
-      class="my-6"
-      justify="center"
-    >
-      <v-col cols="12">
-        <v-simple-table>
-          <template #default>
-            <tbody>
-              <tr>
-                <td>お名前</td>
-                <td>{{ reservation.name }}</td>
-              </tr>
-              <tr>
-                <td>学籍番号</td>
-                <td>{{ reservation.studentId }}</td>
-              </tr>
-              <tr>
-                <td>メールアドレス</td>
-                <td>{{ reservation.email }}</td>
-              </tr>
-              <tr>
-                <td>予約日</td>
-                <td>{{ reservation.date }}</td>
-              </tr>
-              <tr>
-                <td>予約時間</td>
-                <td>{{ reservation.time }}</td>
-              </tr>
-              <tr>
-                <td>補足事項</td>
-                <td>{{ reservation.message }}</td>
-              </tr>
-            </tbody>
-          </template>
-        </v-simple-table>
-      </v-col>
-    </v-row>
+    <ReserveTable :reserve-form="reservation" />
 
     <v-btn
       class="mx-6"
@@ -54,15 +18,17 @@
     >
       キャンセルする
     </v-btn>
-  </div>
+  </article>
 </template>
 
 <script>
 import firebase from '@/firebase.js'
+import ReserveTable from '@/components/ReserveTable.vue'
 
 export default {
   name: 'ConfirmOpenlabDelete',
   components: {
+    ReserveTable
   },
   data () {
     return {
