@@ -16,55 +16,20 @@
         予約は3日前までキャンセルできます。それ以降は直接お問い合わせください。
       </p>
 
-      <v-row
+      <ReserveTable
         v-for="openlabReservation in myOpenlabReservation"
-        :key="openlabReservation.id"
-        class="my-6"
-        justify="center"
+        :key="`first-${openlabReservation.id}`"
+        :reserve-form="openlabReservation"
+      />
+      <v-btn
+        v-for="openlabReservation in myOpenlabReservation"
+        v-show="isThreeDaysBefore(openlabReservation.date)"
+        :key="`second-${openlabReservation.id}`"
+        class="mb-6 ml-6"
+        @click="deleteOpenlabReservation(openlabReservation)"
       >
-        <v-col cols="12">
-          <v-simple-table>
-            <template #default>
-              <tbody>
-                <tr>
-                  <td>お名前</td>
-                  <td>{{ openlabReservation.name }}</td>
-                </tr>
-                <tr>
-                  <td>学籍番号</td>
-                  <td>{{ openlabReservation.studentId }}</td>
-                </tr>
-                <tr>
-                  <td>メールアドレス</td>
-                  <td>{{ openlabReservation.email }}</td>
-                </tr>
-                <tr>
-                  <td>予約日</td>
-                  <td>{{ openlabReservation.date }}</td>
-                </tr>
-                <tr>
-                  <td>予約時間</td>
-                  <td>{{ openlabReservation.time }}</td>
-                </tr>
-                <tr>
-                  <td>補足事項</td>
-                  <td>{{ openlabReservation.message }}</td>
-                </tr>
-                <tr>
-                  <td colspan="2">
-                    <v-btn
-                      v-show="isThreeDaysBefore(openlabReservation.date)"
-                      @click="deleteOpenlabReservation(openlabReservation)"
-                    >
-                      この予約をキャンセルする
-                    </v-btn>
-                  </td>
-                </tr>
-              </tbody>
-            </template>
-          </v-simple-table>
-        </v-col>
-      </v-row>
+        この予約をキャンセルする
+      </v-btn>
     </section>
   </article>
 </template>
@@ -72,11 +37,13 @@
 <script>
 import firebase from '@/firebase.js'
 import WelcomeUser from '@/components/WelcomeUser.vue'
+import ReserveTable from '@/components/ReserveTable.vue'
 
 export default {
   name: 'Mypage',
   components: {
-    WelcomeUser
+    WelcomeUser,
+    ReserveTable
   },
   data () {
     return {
