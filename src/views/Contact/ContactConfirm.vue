@@ -23,7 +23,7 @@
       class="mx-6"
       @click="confirmContact()"
     >
-      予約する
+      問い合わせする
     </v-btn>
   </article>
 </template>
