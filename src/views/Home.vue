@@ -32,6 +32,16 @@
           <v-alert
             border="right"
             colored-border
+            type="success"
+            elevation="2"
+          >
+            <a href="#home-zoom">オンライン開催 zoom の ID/Password を公開しました！</a>
+          </v-alert>
+        </v-col>
+        <v-col cols="12">
+          <v-alert
+            border="right"
+            colored-border
             type="error"
             elevation="2"
           >
@@ -129,7 +139,9 @@
             </v-card-text>
             <v-card-title>開催時間</v-card-title>
             <v-card-subtitle><b>13:00</b>と<b>15:00</b>の2回開催します。<br>50分程度を予定していますが、途中参加/退出も大歓迎です！<br>zoomはビデオをオンにする必要はありません。<br>聞くだけでも大歓迎ですのでぜひご参加ください。</v-card-subtitle>
-            <v-card-title>参加方法</v-card-title>
+            <v-card-title id="home-zoom">
+              参加方法
+            </v-card-title>
             <v-card-subtitle>前日までにzoomの参加URLを下記に記載しますのでそちらから参加ください。</v-card-subtitle>
             <v-card-text>
               <v-card class="pa-2 text-center">
@@ -146,11 +158,15 @@
                       </tr>
                       <tr>
                         <td>Zoom ID</td>
-                        <td />
+                        <td class="text--bold">
+                          850 4659 0994
+                        </td>
                       </tr>
                       <tr>
                         <td>Password</td>
-                        <td />
+                        <td class="text--bold">
+                          852830
+                        </td>
                       </tr>
                     </tbody>
                   </template>
@@ -172,11 +188,15 @@
                       </tr>
                       <tr>
                         <td>Zoom ID</td>
-                        <td />
+                        <td class="text--bold">
+                          826 2828 9180
+                        </td>
                       </tr>
                       <tr>
                         <td>Password</td>
-                        <td />
+                        <td class="text--bold">
+                          437956
+                        </td>
                       </tr>
                     </tbody>
                   </template>
