@@ -55,6 +55,27 @@
         私たちがこの結果を何かに使用することは一切ございません。
       </v-alert>
     </section>
+    <section aria-label="オープンラボでいただいた質問とそれに対する回答一覧">
+      <h1 class="heading--main">
+        オープンラボでいただいた質問を一部紹介します！
+      </h1>
+      <h2 class="heading--accent">
+        多くいただいた質問や、時間の関係上答えることができなかった質問などにお答えします！
+      </h2>
+      <v-row class="my-4">
+        <v-col>
+          <v-expansion-panels accordion>
+            <v-expansion-panel
+              v-for="(item, i) in questions"
+              :key="i"
+            >
+              <v-expansion-panel-header>{{ item.q }}</v-expansion-panel-header>
+              <v-expansion-panel-content>{{ item.ans }}</v-expansion-panel-content>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-col>
+      </v-row>
+    </section>
   </article>
 </template>
 
@@ -66,6 +87,12 @@ export default {
     return {
       images: [
         '/photos/01.jpg'
+      ],
+      questions: [
+        {
+          q: '質問です',
+          ans: '回答です'
+        }
       ]
     }
   }
