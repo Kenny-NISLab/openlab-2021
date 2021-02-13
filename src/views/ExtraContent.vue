@@ -21,7 +21,7 @@
       </v-col>
     </v-row>
     <section
-      aria-label="YouTube"
+      aria-label="研究室紹介動画をYouTubeで公開"
       class="mb-16"
     >
       <h1 class="heading--main">
@@ -40,6 +40,20 @@
           />
         </v-col>
       </v-row>
+    </section>
+    <section aria-label="アンケート結果">
+      <h1 class="heading--main">
+        アンケート結果を公開！
+      </h1>
+      <v-alert
+        outlined
+        type="warning"
+        border="left"
+      >
+        匿名アンケートですので、アンケートの信頼性については保証致しかねます。<br>
+        みなさまの研究室選びの参考にしていただければと思います。<br>
+        私たちがこの結果を何かに使用することは一切ございません。
+      </v-alert>
     </section>
   </article>
 </template>
