@@ -1,25 +1,27 @@
 <template>
   <article aria-label="追加コンテンツ">
-    <h1 class="heading--main">
-      オープンラボ終了後限定の追加コンテンツをお届けします！
-    </h1>
-    <h2 class="heading--sub">
-      オープンラボへのご参加、ありがとうございました！
-    </h2>
-    <v-row>
-      <v-col
-        v-for="image in images"
-        :key="image"
-        class="d-flex child-flex"
-        md="3"
-        sm="4"
-        cols="6"
-      >
-        <v-card>
-          <v-img :src="image" />
-        </v-card>
-      </v-col>
-    </v-row>
+    <section aria-label="写真ギャラリー">
+      <h1 class="heading--main">
+        オープンラボ終了後限定の追加コンテンツをお届けします！
+      </h1>
+      <h2 class="heading--sub">
+        オープンラボへのご参加、ありがとうございました！
+      </h2>
+      <v-row>
+        <v-col
+          v-for="image in images"
+          :key="image"
+          class="d-flex child-flex"
+          md="3"
+          sm="4"
+          cols="6"
+        >
+          <v-card>
+            <v-img :src="image" />
+          </v-card>
+        </v-col>
+      </v-row>
+    </section>
     <section
       aria-label="研究室紹介動画をYouTubeで公開"
       class="mb-16"
@@ -100,13 +102,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.youtube-video{
-  width:100%;
-  padding-bottom: 56.25%;
-  height:0px;
+.youtube-video {
   position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
 
-  iframe{
+  iframe {
     position: absolute;
     top: 0;
     left: 0;
