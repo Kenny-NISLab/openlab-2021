@@ -20,6 +20,26 @@
         </v-card>
       </v-col>
     </v-row>
+    <section
+      aria-label="YouTube"
+      class="mb-16"
+    >
+      <h1 class="heading--main">
+        研究室紹介動画を公開しています！
+      </h1>
+      <v-row>
+        <v-col cols="12">
+          <iframe
+            width="100%"
+            height="100%"
+            src="https://www.youtube.com/embed/9JMPzY-NRDE"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </v-col>
+      </v-row>
+    </section>
   </article>
 </template>
 
