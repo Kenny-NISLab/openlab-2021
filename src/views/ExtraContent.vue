@@ -100,13 +100,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.youtube-video{
-  width:100%;
-  padding-bottom: 56.25%;
-  height:0px;
+.youtube-video {
   position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
 
-  iframe{
+  iframe {
     position: absolute;
     top: 0;
     left: 0;
