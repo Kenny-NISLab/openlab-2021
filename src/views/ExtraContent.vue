@@ -28,10 +28,11 @@
         研究室紹介動画を公開しています！
       </h1>
       <v-row>
-        <v-col cols="12">
+        <v-col
+          class="youtube-video"
+          cols="12"
+        >
           <iframe
-            width="100%"
-            height="100%"
             src="https://www.youtube.com/embed/9JMPzY-NRDE"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -56,3 +57,20 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.youtube-video{
+  width:100%;
+  padding-bottom: 56.25%;
+  height:0px;
+  position: relative;
+
+  iframe{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+</style>
