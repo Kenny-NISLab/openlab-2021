@@ -50,7 +50,7 @@ Address: 恵喜館101号室 (KE-101)
 `;
 };
 
-exports.sendContact = functions.https.onCall(async (data, context) => {
+exports.sendContact = functions.https.onCall(async (data) => {
     let email = {
         from: gmailEmail,
         to: data.email,
@@ -59,7 +59,7 @@ exports.sendContact = functions.https.onCall(async (data, context) => {
         subject: '【NISLAB】お問い合わせを受け付けました',
         text: adminContents(data),
     }
-    await mailTransport.sendMail(email, (err, info) => {
+    await mailTransport.sendMail(email, (err) => {
         if (err) {
             return console.log(err)
         }
@@ -109,7 +109,7 @@ Address: 恵喜館101号室 (KE-101)
 `;
 };
 
-exports.sendReservation = functions.https.onCall(async (data, context) => {
+exports.sendReservation = functions.https.onCall(async (data) => {
     let email = {
         from: gmailEmail,
         to: data.email,
@@ -118,7 +118,7 @@ exports.sendReservation = functions.https.onCall(async (data, context) => {
         subject: '【NISLAB】研究室訪問の予約が完了しました',
         text: adminReservations(data),
     }
-    await mailTransport.sendMail(email, (err, info) => {
+    await mailTransport.sendMail(email, (err) => {
         if (err) {
             return console.log(err)
         }

@@ -10,7 +10,7 @@
 
 This is [Open LAB Web Site](https://openlab.nislab.info/).
 
-> https://openlab.nislab.info/
+> <https://openlab.nislab.info/>
 
 ## Assets
 
@@ -33,3 +33,26 @@ This is [Open LAB Web Site](https://openlab.nislab.info/).
 ## Preview
 
 ![preview](https://user-images.githubusercontent.com/49851726/105704969-e5a9ce80-5f52-11eb-8c8d-8bd0263a3bb9.gif)
+
+## Build Set-up
+
+### Create `.env` file
+
+```.env
+VUE_APP_FIREBASE_API_KEY=
+VUE_APP_FIREBASE_AUTH_DOMAIN=
+VUE_APP_FIREBASE_DATABASE_URL=
+VUE_APP_FIREBASE_PROJECT_ID=
+VUE_APP_FIREBASE_STORAGE_BUCKET=
+VUE_APP_FIREBASE_MESSAGING_SENDER_ID=
+VUE_APP_FIREBASE_APP_ID=
+VUE_APP_FIREBASE_MEASUREMENT_ID=
+```
+
+### Create `GitHub Actions secrets`
+
+```.env
+ENV_PROD=
+FIREBASE_TOKEN=
+SLACK_WEBHOOK_URL=
+```
