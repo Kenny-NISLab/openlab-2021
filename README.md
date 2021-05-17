@@ -24,7 +24,7 @@
 ## <p align="center"><a href="https://github.com/Kenny-NISLab/openlab-2021/graphs/contributors">Contributors</a></p>
 
 <div align="center">
-<a href="https://github.com/Kenny-NISLab/openlab-2021/graphs/contributors"><img src="https://img.shields.io/github/contributors/Kenny-NISLab/nisroom" alt="contributors"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/graphs/contributors"><img src="https://img.shields.io/github/contributors/Kenny-NISLab/openlab-2021" alt="contributors"></a>
 </div>
 
 <div align="center">
