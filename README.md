@@ -9,16 +9,16 @@
 </div>
 
 <div align="center">
-<a href="https://github.com/Kenny-NISLab/nisroom/commits/main"><img src="https://img.shields.io/github/last-commit/Kenny-NISLab/nisroom" alt="last-commit"></a>
-<a href="https://github.com/Kenny-NISLab/nisroom/releases"><img src="https://img.shields.io/github/v/release/Kenny-NISLab/nisroom" alt="release"></a>
-<a href="https://github.com/Kenny-NISLab/nisroom"><img src="https://img.shields.io/github/languages/top/Kenny-NISLab/nisroom" alt="languages"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/commits/main"><img src="https://img.shields.io/github/last-commit/Kenny-NISLab/openlab-2021" alt="last-commit"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/releases"><img src="https://img.shields.io/github/v/release/Kenny-NISLab/openlab-2021" alt="release"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021"><img src="https://img.shields.io/github/languages/top/Kenny-NISLab/openlab-2021" alt="languages"></a>
 </div>
 
 <div align="center">
-<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/push_main.yml"><img src="https://github.com/kogepanh/openlab/workflows/Push%20Main%20Branch/badge.svg" alt="actions"></a>
-<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/pr_main.yml"><img src="https://github.com/kogepanh/openlab/workflows/Pull%20Request%20Main%20Branch/badge.svg" alt="actions"></a>
-<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/push_develop.yml"><img src="https://github.com/kogepanh/openlab/workflows/Push%20Develop%20Branch/badge.svg" alt="actions"></a>
-<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/pr_develop.yml"><img src="https://github.com/kogepanh/openlab/workflows/Pull%20Request%20Develop%20Branch/badge.svg" alt="actions"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/push_main.yml"><img src="https://github.com/Kenny-NISLab/openlab-2021/workflows/Push%20Main%20Branch/badge.svg" alt="actions"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/pr_main.yml"><img src="https://github.com/Kenny-NISLab/openlab-2021/workflows/Pull%20Request%20Main%20Branch/badge.svg" alt="actions"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/push_develop.yml"><img src="https://github.com/Kenny-NISLab/openlab-2021/workflows/Push%20Develop%20Branch/badge.svg" alt="actions"></a>
+<a href="https://github.com/Kenny-NISLab/openlab-2021/actions/workflows/pr_develop.yml"><img src="https://github.com/Kenny-NISLab/openlab-2021/workflows/Pull%20Request%20Develop%20Branch/badge.svg" alt="actions"></a>
 </div>
 
 ## <p align="center"><a href="https://github.com/Kenny-NISLab/openlab-2021/graphs/contributors">Contributors</a></p>
